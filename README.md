@@ -1,4 +1,4 @@
-# RASpberry PI IPCamera Monitor
+# RASpberry PI IPCamera Display
 ## About
 Pronounced: Ras - Pip - See
 
