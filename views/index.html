@@ -36,6 +36,10 @@
                     templateUrl: 'templates/4cams/view.html',
                     controller: '4Cams'
                   })
+                  .when('/4Rcams', {
+                    templateUrl: 'templates/4Rcams/view.html',
+                    controller: '4RCams'
+                  })
                   .when('/5cams', {
                     templateUrl: 'templates/5cams/view.html',
                     controller: '5Cams'
@@ -44,6 +48,10 @@
                     templateUrl: 'templates/6cams/view.html',
                     controller: '6Cams'
                   })
+                  .when('/7cams', {
+                    templateUrl: 'templates/7cams/view.html',
+                    controller: '7Cams'
+                  })
                   .when('/8cams', {
                     templateUrl: 'templates/8cams/view.html',
                     controller: '8Cams'
@@ -51,6 +59,10 @@
                   .when('/9cams', {
                     templateUrl: 'templates/9cams/view.html',
                     controller: '9Cams'
+                  })
+                  .when('/10cams', {
+                    templateUrl: 'templates/10cams/view.html',
+                    controller: '10Cams'
                   })
                   .when('/13cams', {
                     templateUrl: 'templates/13cams/view.html',
@@ -85,10 +97,13 @@
     <script src="templates/1cam/script.js"></script>
     <script src="templates/3cams/script.js"></script>
     <script src="templates/4cams/script.js"></script>
+    <script src="templates/4Rcams/script.js"></script>
     <script src="templates/5cams/script.js"></script>
     <script src="templates/6cams/script.js"></script>
+    <script src="templates/7cams/script.js"></script>
     <script src="templates/8cams/script.js"></script>
     <script src="templates/9cams/script.js"></script>
+    <script src="templates/10cams/script.js"></script>
     <script src="templates/13cams/script.js"></script>
     <script src="templates/16cams/script.js"></script>
 </head>
@@ -104,6 +119,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li ng-class="{active: page == '1cam'}"><a href="#/1cam">1</a></li>
                 <li ng-class="{active: page == '4Cams'}"><a href="#/4cams">4</a></li>
+                <li ng-class="{active: page == '4RCams'}"><a href="#/4Rcams">4R</a></li>
                 <li ng-class="{active: page == '5Cams'}"><a href="#/5cams">5</a></li>
                 <li ng-class="{active: page == '6Cams'}"><a href="#/6cams">6</a></li>
                 <li ng-class="{active: page == '7Cams'}"><a href="#/7cams">7</a></li>

@@ -10,5 +10,8 @@ body {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     color: #004756;
     background: #ffffff;
+    background-image: url('/images/camera.png');
+    background-repeat: no-repeat;
+    background-size: cover;
     padding: 10px;
 }

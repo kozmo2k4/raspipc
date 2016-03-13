@@ -25,3 +25,10 @@ input {
 .navbar-brand {
   padding: 0px 0px;
 }
+
+.gridster .gridster-item {
+  background-image: url('/images/camera.png') !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
