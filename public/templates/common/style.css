@@ -25,6 +25,12 @@ input {
 .navbar-brand {
   padding: 0px 0px;
 }
+.navbar-middle {
+  padding: 0px 0px;
+  width: 50%;
+  left: 20%;
+  position: absolute;
+}
 
 .gridster .gridster-item {
   background-image: url('/images/camera.png') !important;

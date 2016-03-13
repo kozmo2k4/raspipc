@@ -2,10 +2,7 @@
 ## About
 Pronounced: Ras - Pip - See
 
-Goals:
- * Easily display security cameras on a dedicated monitor managed via simple and modern WebUI.
- * Use excess resources to provide secure remote access to security cameras via OpenVPN.
-   * Port Forwarding to IPCameras is EVIL, to make it even easier it this will encourage its use.
+Goal: Easily display security cameras on a dedicated monitor managed via simple and modern WebUI.
 
 > Under Very Heavy Development - NON FUNCTIONAL
 
@@ -24,9 +21,16 @@ Goals:
   * MQTT API
   * RESTful URL API
 * Raspbian Jessie image - boot and go!
-  * OpenVPN Server ready for Secure access to IPCameras
   * Nginx Proxy for external auth support
   * ONViF Discovery on first boot
+
+### Requirements:
+* Compatible RSTP or HTTP Video streams
+* Raspberry Pi2 or newer
+* Wired Ethernet for best results
+* Monitor connected via HDMI
+  * FYI: Aspect Ratios will be identical to your display
+
 
 ## Screenshots
 =================

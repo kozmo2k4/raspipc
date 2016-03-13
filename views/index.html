@@ -116,26 +116,28 @@
             <div class="navbar-inner">
                 <a class="navbar-brand" href="#/about"><img src="rpi-icon.png" height="48px" width="48px">RasPipC</a>
             </div>
+            <ul class='nav navbar-nav navbar-middle'>
+              <li ng-class="{active: page == '1cam'}"><a href="#/1cam">1</a></li>
+              <li ng-class="{active: page == '4Cams'}"><a href="#/4cams">4</a></li>
+              <li ng-class="{active: page == '4RCams'}"><a href="#/4Rcams">4R</a></li>
+              <li ng-class="{active: page == '5Cams'}"><a href="#/5cams">5</a></li>
+              <li ng-class="{active: page == '6Cams'}"><a href="#/6cams">6</a></li>
+              <li ng-class="{active: page == '7Cams'}"><a href="#/7cams">7</a></li>
+              <li ng-class="{active: page == '8Cams'}"><a href="#/8cams">8</a></li>
+              <li ng-class="{active: page == '9Cams'}"><a href="#/9cams">9</a></li>
+              <li ng-class="{active: page == '10Cams'}"><a href="#/10cams">10</a></li>
+              <li ng-class="{active: page == '13Cams'}"><a href="#/13cams">13</a></li>
+              <li ng-class="{active: page == '16Cams'}"><a href="#/16cams">16</a></li>
+            </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li ng-class="{active: page == '1cam'}"><a href="#/1cam">1</a></li>
-                <li ng-class="{active: page == '4Cams'}"><a href="#/4cams">4</a></li>
-                <li ng-class="{active: page == '4RCams'}"><a href="#/4Rcams">4R</a></li>
-                <li ng-class="{active: page == '5Cams'}"><a href="#/5cams">5</a></li>
-                <li ng-class="{active: page == '6Cams'}"><a href="#/6cams">6</a></li>
-                <li ng-class="{active: page == '7Cams'}"><a href="#/7cams">7</a></li>
-                <li ng-class="{active: page == '8Cams'}"><a href="#/8cams">8</a></li>
-                <li ng-class="{active: page == '9Cams'}"><a href="#/9cams">9</a></li>
-                <li ng-class="{active: page == '10Cams'}"><a href="#/10cams">10</a></li>
-                <li ng-class="{active: page == '13Cams'}"><a href="#/13cams">13</a></li>
-                <li ng-class="{active: page == '16Cams'}"><a href="#/16cams">16</a></li>
-                <li><a>|</a></li>
                 <li ng-class="{active: page == 'apply'}"><a href="#/apply"><i class="glyphicon glyphicon-check"></i></a></li>
                 <li ng-class="{active: page == 'refresh'}"><a href="#/refresh"><i class="glyphicon glyphicon-refresh"></i></a></li>
                 <!--<li ng-class="{active: page == 'dashboard'}"><a href="#/dashboard"><i class="glyphicon glyphicon-flash"></i></a></li>-->
-                <li ng-class="{active: page == 'openvpn'}"><a href="#/openvpn"><i class="glyphicon glyphicon-lock"></i></a></li>
+                <!--<li ng-class="{active: page == 'openvpn'}"><a href="#/openvpn"><i class="glyphicon glyphicon-lock"></i></a></li>-->
                 <li ng-class="{active: page == 'update'}"><a href="#/update" target="_blank" class="code-coverage"><i class="glyphicon glyphicon-cloud-download"></i></a></li>
-                <li ng-class="{active: page == 'apply'}"><a href="#/cameras"><i class="glyphicon glyphicon-cog"></i></a></li>
-
+                <li ng-class="{active: page == 'apply'}"><a href="#/cameras"><i class="glyphicon glyphicon-facetime-video"></i></a></li>
+                <li ng-class="{active: page == 'mute'}"><a href="#/mute"><i class="glyphicon glyphicon-headphones"></i></a></li>
+                <li ng-class="{active: page == 'mute'}"><a href="#/mute"><i class="glyphicon glyphicon-off"></i></a></li>
             </ul>
         </div>
 
