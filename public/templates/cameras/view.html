@@ -1,0 +1,21 @@
+<div class="page-header">
+	<h2 style="display: inline-block; width: 200px; color: white;">IP Cameras</h2>
+	<a class="pull-right btn btn-primary" ng-click="addWidget()"><i class="glyphicon glyphicon-plus"></i> Add Camera</a>
+	<a class="pull-right btn btn-primary" ng-click="addWidget()"><i class="glyphicon glyphicon-refresh"></i> Scan</a>
+	<!--<a class="pull-right btn btn-warning" ng-click="clear()"><i class="glyphicon glyphicon-trash"></i> Clear</a>-->
+</div>
+<div gridster="gridsterOptions">
+		<li gridster-item="widget" ng-repeat="widget in dashboard.widgets">
+			<div class="box" ng-controller="CustomWidgetCtrl">
+				<div class="box-header">
+					<h3>{{ widget.name }}</h3>
+					<div class="box-header-btns pull-right">
+						<a title="settings" ng-click="openSettings(widget)"><i class="glyphicon glyphicon-cog"></i></a>
+						<a title="Remove widget" ng-click="remove(widget)"><i class="glyphicon glyphicon-trash"></i></a>
+					</div>
+				</div>
+				<div class="box-content">
+				</div>
+			</div>
+		</li>
+</div>
