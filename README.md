@@ -1,42 +1,19 @@
-### About
+## About
 
-Angular setup loosely based on [Angular Quickstart](https://github.com/angular/quickstart)
+Pronounced: Ras - Pip - See
 
-Included in `./public/vendor/`:
+Goal: easily display security cameras on a dedicated monitor with an easy to use and modern WebUI.
 
-* Pre-built ES5 from Angular 2.0.0-alpha.20
-  * angular2
-  * rtts_assert
-  * rx.all.js
+> Under Very Heavy Development
 
-* es6-shim (from angular quick start) includes:
-  * Traceur
-  * ES6 Module Loader
-  * System
-  * Zone
-  * Traceur options for meta-data annotations
+#### Features
+* RSTP H264 TCP Video Streaming
+* 1/4/5/6/7/8/9/10/13/16 Grid Displays
+* WebUI for easy setup
+* Stream Watchdog restarts dead streams
+* External IO for monitor
 
-### Instructions
-
-install dependencies:
-
-```bash
-npm install
-``` 
-
-run the app:
-
-```bash
-DEBUG=ng2-express-starter:* ./bin/www
-``` 
-
-preview app:
-
-```
-http://localhost:3000/
-```
-
-### Screenshot
+## Screenshots
 =================
 
-![screenshot](https://raw.githubusercontent.com/afj176/ng2-express-starter/master/screenshot.png "Screenshot")
+![screenshot](screenshots/screenshot1.png "Screenshot")
