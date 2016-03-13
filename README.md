@@ -34,5 +34,7 @@ Goal: Easily display security cameras on a dedicated monitor managed via simple 
 
 ## Screenshots
 =================
-![screenshot](screenshots/Screen Shot 2016-03-12 at 9.40.32 PM.png "Screenshot")
-![screenshot](screenshots/Screen Shot 2016-03-13 at 12.38.49 AM.png "Screenshot")
+![screenshot](screenshots/Screen Shot 2016-03-13 at 6.23.48 AM.png "Screenshot")
+![screenshot](screenshots/Screen Shot 2016-03-13 at 6.23.51 AM.png "Screenshot")
+![screenshot](screenshots/Screen Shot 2016-03-13 at 6.24.05 AM.png "Screenshot")
+![screenshot](screenshots/Screen Shot 2016-03-13 at 6.24.14 AM.png "Screenshot")
