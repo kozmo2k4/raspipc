@@ -31,9 +31,7 @@ Goal: Easily display security cameras on a dedicated monitor managed via simple 
 * Monitor connected via HDMI
   * FYI: Aspect Ratios will be identical to your display
 
-
-## Screenshots
-=================
+### Screenshots
 ![screenshot](screenshots/Screen Shot 2016-03-13 at 6.23.48 AM.png "Screenshot")
 ![screenshot](screenshots/Screen Shot 2016-03-13 at 6.23.51 AM.png "Screenshot")
 ![screenshot](screenshots/Screen Shot 2016-03-13 at 6.24.05 AM.png "Screenshot")
