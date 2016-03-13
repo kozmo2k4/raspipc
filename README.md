@@ -2,9 +2,9 @@
 
 Pronounced: Ras - Pip - See
 
-Goal: easily display security cameras on a dedicated monitor with an easy to use and modern WebUI.
+Goal: easily display security cameras on a dedicated monitor with a simple and modern WebUI.
 
-> Under Very Heavy Development
+> Under Very Heavy Development - NON FUNCTIONAL
 
 #### Features
 * RSTP H264 TCP Video Streaming
