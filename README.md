@@ -6,12 +6,21 @@ Goal: easily display security cameras on a dedicated monitor with a simple and m
 
 > Under Very Heavy Development - NON FUNCTIONAL
 
-#### Features
-* RSTP H264 TCP Video Streaming
+#### Features (mostly planned, not all implemented)
+* RSTP H264 & MJPEG TCP Video Streaming
 * 1/4/5/6/7/8/9/10/13/16 Grid Displays
 * WebUI for easy setup
-* Stream Watchdog restarts dead streams
+  * Drag and drop arrangement
+  * ONViF Detection
+  * Real image in mockup
+* Stream Watchdog
+  * Restarts dropped streams
+  * Durring outage, displays next highest priority
 * External IO for monitor
+* Home Automation Integration
+  * MQTT API
+  * RESTful URL API
+* Raspbian Image - Ready to go.
 
 ## Screenshots
 =================
