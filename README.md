@@ -15,5 +15,5 @@ Goal: easily display security cameras on a dedicated monitor with an easy to use
 
 ## Screenshots
 =================
-
-![screenshot](screenshots/screenshot1.png "Screenshot")
+![screenshot](screenshots/Screen Shot 2016-03-12 at 9.40.32 PM.png "Screenshot")
+![screenshot](screenshots/Screen Shot 2016-03-13 at 12.38.49 AM.png "Screenshot")
