@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>RasPipC</title>
-    <meta name="description" content="" />
+    <meta name="description" content="Rasperry Pi IPCamera Display" />
+    <meta name="author" content="Ryan Hunt - admin@nayr.net">
     <meta name="viewport" content="width=device-width" />
-
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="dist/angular-gridster.min.css" />
     <link rel="stylesheet" href="templates/common/style.css" />
-
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js"></script>
     <script src="https://code.angularjs.org/1.2.15/angular-route.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
@@ -24,57 +22,61 @@
         		.config(['$routeProvider',
         			function($routeProvider) {
         				$routeProvider
-                  .when('/1cam', {
-                    templateUrl: 'templates/1cam/view.html',
+                  .when('/1', {
+                    templateUrl: 'templates/1/view.html',
                     controller: '1Cam'
                   })
-                  .when('/3cams', {
-                    templateUrl: 'templates/3cams/view.html',
+                  .when('/2', {
+                    templateUrl: 'templates/2/view.html',
+                    controller: '2Cams'
+                  })
+                  .when('/3', {
+                    templateUrl: 'templates/3/view.html',
                     controller: '3Cams'
                   })
-                  .when('/4cams', {
-                    templateUrl: 'templates/4cams/view.html',
+                  .when('/4', {
+                    templateUrl: 'templates/4/view.html',
                     controller: '4Cams'
                   })
-                  .when('/4Rcams', {
-                    templateUrl: 'templates/4Rcams/view.html',
+                  .when('/4R', {
+                    templateUrl: 'templates/4R/view.html',
                     controller: '4RCams'
                   })
-                  .when('/5cams', {
-                    templateUrl: 'templates/5cams/view.html',
+                  .when('/5', {
+                    templateUrl: 'templates/5/view.html',
                     controller: '5Cams'
                   })
-                  .when('/6cams', {
-                    templateUrl: 'templates/6cams/view.html',
+                  .when('/6', {
+                    templateUrl: 'templates/6/view.html',
                     controller: '6Cams'
                   })
-                  .when('/7cams', {
-                    templateUrl: 'templates/7cams/view.html',
+                  .when('/7', {
+                    templateUrl: 'templates/7/view.html',
                     controller: '7Cams'
                   })
-                  .when('/8cams', {
-                    templateUrl: 'templates/8cams/view.html',
+                  .when('/8', {
+                    templateUrl: 'templates/8/view.html',
                     controller: '8Cams'
                   })
-                  .when('/9cams', {
-                    templateUrl: 'templates/9cams/view.html',
+                  .when('/9', {
+                    templateUrl: 'templates/9/view.html',
                     controller: '9Cams'
                   })
-                  .when('/10cams', {
-                    templateUrl: 'templates/10cams/view.html',
+                  .when('/10', {
+                    templateUrl: 'templates/10/view.html',
                     controller: '10Cams'
                   })
-                  .when('/13cams', {
-                    templateUrl: 'templates/13cams/view.html',
+                  .when('/13', {
+                    templateUrl: 'templates/13/view.html',
                     controller: '13Cams'
                   })
-                  .when('/16cams', {
-                    templateUrl: 'templates/16cams/view.html',
+                  .when('/16', {
+                    templateUrl: 'templates/16/view.html',
                     controller: '16Cams'
                   })
         					.when('/cameras', {
         						templateUrl: 'templates/cameras/view.html',
-        						controller: 'DashboardCtrl'
+        						controller: 'CameraCtl'
         					})
                   .when('/about', {
                     templateUrl: 'templates/about/view.html',
@@ -85,64 +87,94 @@
         					});
         			}
         		])
-        		.controller('RootCtrl', function($scope) {
+        		.controller('RootCtrl', ['$scope', '$http', function($scope, $http) {
         			$scope.$on('$locationChangeStart', function(e, next, current) {
         				$scope.page = next.split('/').splice(-1);
         				$scope.styleUrl = 'templates/' + $scope.page + '/style.css'
         			});
-        		});
+  /*            // Save Camera Settings
+              $scope.saveView = function() {
+                //angular.extend(widget, $scope.form);
+                var formData = {
+                  id: $scope.page,
+                  data: $scope.standardItems,
+                }
+                console.log($scope.standardItems)
+                var jdata = 'data=' + JSON.stringify(formData);
+
+                $http({ // Accessing the Angular $http Service to send data via REST Communication to Node Server.
+                  method: 'POST',
+                  url: '/api/updateView',
+                  data: jdata,
+                  headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                  },
+                }).
+                success(function(response) {
+                  console.log("success"); // Getting Success Response in Callback
+                  $scope.codeStatus = response.data;
+                  console.log($scope.codeStatus);
+                }).
+                error(function(response) {
+                  console.log("error"); // Getting Error Response in Callback
+                  $scope.codeStatus = response || "Request failed";
+                  console.log($scope.codeStatus);
+                });
+                // Saved Confirmation Here
+              }; */
+        		}]);
         })();
+
     </script>
     <script src="templates/cameras/script.js"></script>
-    <script src="templates/1cam/script.js"></script>
-    <script src="templates/3cams/script.js"></script>
-    <script src="templates/4cams/script.js"></script>
-    <script src="templates/4Rcams/script.js"></script>
-    <script src="templates/5cams/script.js"></script>
-    <script src="templates/6cams/script.js"></script>
-    <script src="templates/7cams/script.js"></script>
-    <script src="templates/8cams/script.js"></script>
-    <script src="templates/9cams/script.js"></script>
-    <script src="templates/10cams/script.js"></script>
-    <script src="templates/13cams/script.js"></script>
-    <script src="templates/16cams/script.js"></script>
+    <script src="templates/1/script.js"></script>
+    <script src="templates/2/script.js"></script>
+    <script src="templates/3/script.js"></script>
+    <script src="templates/4/script.js"></script>
+    <script src="templates/4R/script.js"></script>
+    <script src="templates/5/script.js"></script>
+    <script src="templates/6/script.js"></script>
+    <script src="templates/7/script.js"></script>
+    <script src="templates/8/script.js"></script>
+    <script src="templates/9/script.js"></script>
+    <script src="templates/10/script.js"></script>
+    <script src="templates/13/script.js"></script>
+    <script src="templates/16/script.js"></script>
 </head>
-
 <body ng-app="app">
     <div ng-controller="RootCtrl">
         <link rel="stylesheet" ng-href="{{ styleUrl }}" />
-
         <div class="navbar navbar-inverse">
             <div class="navbar-inner">
                 <a class="navbar-brand" href="#/about"><img src="rpi-icon.png" height="48px" width="48px">RasPipC</a>
             </div>
             <ul class='nav navbar-nav navbar-middle'>
-              <li ng-class="{active: page == '1cam'}"><a href="#/1cam">1</a></li>
-              <li ng-class="{active: page == '4Cams'}"><a href="#/4cams">4</a></li>
-              <li ng-class="{active: page == '4RCams'}"><a href="#/4Rcams">4R</a></li>
-              <li ng-class="{active: page == '5Cams'}"><a href="#/5cams">5</a></li>
-              <li ng-class="{active: page == '6Cams'}"><a href="#/6cams">6</a></li>
-              <li ng-class="{active: page == '7Cams'}"><a href="#/7cams">7</a></li>
-              <li ng-class="{active: page == '8Cams'}"><a href="#/8cams">8</a></li>
-              <li ng-class="{active: page == '9Cams'}"><a href="#/9cams">9</a></li>
-              <li ng-class="{active: page == '10Cams'}"><a href="#/10cams">10</a></li>
-              <li ng-class="{active: page == '13Cams'}"><a href="#/13cams">13</a></li>
-              <li ng-class="{active: page == '16Cams'}"><a href="#/16cams">16</a></li>
+              <li ng-class="{active: page == '1Cam'}"><a href="#/1"><i class="glyphicon glyphicon-stop"></i></a></li>
+              <li ng-class="{active: page == '2Cams'}"><a href="#/2">2</a></li>
+              <li ng-class="{active: page == '3Cams'}"><a href="#/3">3</a></li>
+              <li ng-class="{active: page == '4Cams'}"><a href="#/4"><i class="glyphicon glyphicon-th-large"></i></a></li>
+              <li ng-class="{active: page == '4RCams'}"><a href="#/4R">4</a></li>
+              <li ng-class="{active: page == '5Cams'}"><a href="#/5">5</a></li>
+              <li ng-class="{active: page == '6Cams'}"><a href="#/6">6</a></li>
+              <li ng-class="{active: page == '7Cams'}"><a href="#/7">7</a></li>
+              <li ng-class="{active: page == '8Cams'}"><a href="#/8">8</a></li>
+              <li ng-class="{active: page == '9Cams'}"><a href="#/9"><i class="glyphicon glyphicon-th"></i></a></li>
+              <li ng-class="{active: page == '10Cams'}"><a href="#/10">10</a></li>
+              <li ng-class="{active: page == '13Cams'}"><a href="#/13">13</a></li>
+              <li ng-class="{active: page == '16Cams'}"><a href="#/16">16</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li ng-class="{active: page == 'apply'}"><a href="#/apply"><i class="glyphicon glyphicon-check"></i></a></li>
+                <li ng-class="{active: page == 'save'}"><a ng-click="saveView()"><i class="glyphicon glyphicon-play-circle"></i></a></li>
                 <li ng-class="{active: page == 'refresh'}"><a href="#/refresh"><i class="glyphicon glyphicon-refresh"></i></a></li>
                 <!--<li ng-class="{active: page == 'dashboard'}"><a href="#/dashboard"><i class="glyphicon glyphicon-flash"></i></a></li>-->
                 <!--<li ng-class="{active: page == 'openvpn'}"><a href="#/openvpn"><i class="glyphicon glyphicon-lock"></i></a></li>-->
                 <li ng-class="{active: page == 'update'}"><a href="#/update" target="_blank" class="code-coverage"><i class="glyphicon glyphicon-cloud-download"></i></a></li>
-                <li ng-class="{active: page == 'apply'}"><a href="#/cameras"><i class="glyphicon glyphicon-facetime-video"></i></a></li>
+                <li ng-class="{active: page == 'CameraCtl'}"><a href="#/cameras"><i class="glyphicon glyphicon-facetime-video"></i></a></li>
                 <li ng-class="{active: page == 'mute'}"><a href="#/mute"><i class="glyphicon glyphicon-headphones"></i></a></li>
                 <li ng-class="{active: page == 'mute'}"><a href="#/mute"><i class="glyphicon glyphicon-off"></i></a></li>
             </ul>
         </div>
-
         <div class="container" ng-view></div>
     </div>
 </body>
-
 </html>

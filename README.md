@@ -8,7 +8,8 @@ Goal: Easily display security cameras on a dedicated monitor managed via simple 
 
 #### Features (mostly planned, not all implemented)
 * RSTP H264 & MJPEG TCP Video Streaming
-* 1/4/5/6/7/8/9/10/13/16 Grid Displays
+* 1/2/4/5/6/7/8/9/10/13/16 Grid Displays
+* Letterbox/Stretch/Fill Aspect Ratios
 * WebUI for easy setup
   * Drag and drop arrangement
   * ONViF Detection

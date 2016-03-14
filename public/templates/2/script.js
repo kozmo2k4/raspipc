@@ -15,7 +15,7 @@ angular.module('app')
 	};
 })
 
-.controller('3Cams', function($scope) {
+.controller('2Cams', function($scope) {
 
 	$scope.gridsterOpts = {
 		margins: [5, 5],
@@ -39,23 +39,17 @@ angular.module('app')
 
 	// these map directly to gridsterItem options
 	$scope.standardItems = [{
-		sizeX: 2,
+		sizeX: 4,
 		sizeY: 2,
 		row: 0,
 		col: 0,
 		name: 'Camera 1'
 	}, {
-		sizeX: 1,
-		sizeY: 1,
-		row: 0,
-		col: 2,
-		name: 'Camera 2'
-	}, {
-		sizeX: 1,
-		sizeY: 1,
+		sizeX: 4,
+		sizeY: 2,
 		row: 2,
 		col: 0,
-		name: 'Camera 3'
+		name: 'Camera 2'
 
 	}];
 

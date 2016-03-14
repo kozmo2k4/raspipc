@@ -21,13 +21,13 @@
             <div class="form-group" ng-class="{error: _form.name.$error && _form.submitted}">
                 <label class="control-label col-lg-3 col-md-3">User Name</label>
                 <div class="col-lg-9 col-md-9">
-                    <input name="user" type="text" ng-model="form.username" class="form-control" />
+                    <input name="user" type="text" ng-model="form.user" class="form-control" />
                 </div>
             </div>
             <div class="form-group" ng-class="{error: _form.name.$error && _form.submitted}">
                 <label class="control-label col-lg-3 col-md-3">Password</label>
                 <div class="col-lg-9 col-md-9">
-                    <input name="pass" type="text" ng-model="form.password" class="form-control" />
+                    <input name="pass" type="password" ng-model="form.pass" class="form-control" />
                 </div>
             </div>
             <div class="form-group" ng-class="{error: _form.name.$error && _form.submitted}">
@@ -39,15 +39,15 @@
             <div class="form-group" ng-class="{error: _form.name.$error && _form.submitted}">
                 <label class="control-label col-lg-3 col-md-3">JPEG URI</label>
                 <div class="col-lg-9 col-md-9">
-                    <input name="jpg" type="text" ng-model="form.jpg" class="form-control" />
+                    <input name="jpg" type="text" ng-model="form.jpeg" class="form-control" />
                 </div>
             </div>
             <div class="form-group" ng-class="{error: _form.name.$error && _form.submitted}">
                 <label class="control-label col-lg-3 col-md-3">Aspect</label>
                 <div class="col-lg-9 col-md-9">
-                    <input type="radio" name="radio" ng-model="vm.radio" value="fill" /> Fill<br/>
-                    <input type="radio" name="radio" ng-model="vm.radio" value="stretch"/> Stretch<br/>
-                    <input type="radio" name="radio" ng-model="vm.radio" value="letterbox"/> Letterbox<br/>
+                    <input type="radio" name="radio" ng-model="form.ar" value="fill" /> Fill<br/>
+                    <input type="radio" name="radio" ng-model="form.ar" value="stretch"/> Stretch<br/>
+                    <input type="radio" name="radio" ng-model="form.ar" value="letterbox"/> Letterbox<br/>
                 </div>
             </div>
         </div>
