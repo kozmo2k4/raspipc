@@ -94,33 +94,40 @@ router.post('/delCamera', function(req, res) {
 router.post('/getViews', function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "http://localhost");
   res.header("Access-Control-Allow-Methods", "GET, POST");
-  db.views.find('{ _id : ' + req.body.view + '}', function(err, data) { // Query in NeDB via NeDB Module
+  db.views.find({
+    id: req.body.view
+  }, function(err, data) { // Query in NeDB via NeDB Module
     res.writeHead(200, {
       'Content-Type': 'application/json'
     }); // Sending data via json
-    res.end(data);
+    res.end(JSON.stringify(data));
   });
 });
 
 // Update Views
 router.post('/updateView', function(req, res) {
-  console.log("POST: ");
+  //console.log("POST: ");
   res.header("Access-Control-Allow-Origin", "http://localhost");
   res.header("Access-Control-Allow-Methods", "GET, POST");
-  console.log(req.body.view);
-  console.log(req.body.data);
-  var jsonData = JSON.parse(req.body.data);
-  db.views.update({
-      _id: req.body.view,
-    }, {
-      data: req.body.data,
-    }, {
-      upsert: true,
-    },
-    function(err, numReplaced, upsert) { // Query in NeDB via NeDB Module
-      if (err) res.end("View not saved");
-      else res.end("View saved");
-    });
+  //console.log(req.body.view);
+  //console.log(req.body.data);
+  if (req.body.data !== 'undefined') {
+    var jsonData = JSON.parse(req.body.data);
+    db.views.update({
+        id: req.body.view,
+      }, {
+        id: req.body.view,
+        data: req.body.data,
+      }, {
+        upsert: true,
+      },
+      function(err, numReplaced, upsert) { // Query in NeDB via NeDB Module
+        if (err) res.end("View not saved");
+        else res.end("View saved");
+      });
+  } else {
+    res.end("thanks")
+  }
 });
 
 module.exports = router;

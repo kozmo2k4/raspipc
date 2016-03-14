@@ -10,7 +10,7 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var api = require('./routes/api');
-
+var merge = require('merge')
 var app = express();
 
 // view engine setup
