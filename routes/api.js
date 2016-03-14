@@ -57,10 +57,10 @@ router.post('/addCamera', function(req, res) {
     }, {
       name: jsonData.name,
       host: jsonData.host,
-      un: jsonData.user,
-      pw: jsonData.pass,
+      user: jsonData.user,
+      pass: jsonData.pass,
       feed: jsonData.feed,
-      jpg: jsonData.jpeg,
+      jpeg: jsonData.jpeg,
       ar: jsonData.ar
     }, {
       upsert: true,
