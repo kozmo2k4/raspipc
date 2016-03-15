@@ -5,148 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>RasPipC</title>
     <meta name="description" content="Rasperry Pi IPCamera Display" />
-    <meta name="author" content="Ryan Hunt - admin@nayr.net">
+    <meta name="author" content="Ryan Hunt - admin@nayr.net" />
     <meta name="viewport" content="width=device-width" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" href="dist/angular-gridster.min.css" />
-    <link rel="stylesheet" href="templates/common/style.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js"></script>
-    <script src="https://code.angularjs.org/1.2.15/angular-route.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
-
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/angular-gridster.min.css" />
+    <link rel="stylesheet" href="css/common-style.css" />
+    <script src="src/angular.js"></script>
+    <script src="src/angular-route.min.js"></script>
+    <script src="src/ui-bootstrap-tpls.min.js"></script>
     <script src="src/angular-gridster.js"></script>
-
-    <script type="text/javascript">
-        (function() {
-        	angular.module('app', ['gridster', 'ui.bootstrap', 'ngRoute'])
-        		.config(['$routeProvider',
-        			function($routeProvider) {
-        				$routeProvider
-                  .when('/1', {
-                    templateUrl: 'templates/1/view.html',
-                    controller: '1Cam'
-                  })
-                  .when('/2', {
-                    templateUrl: 'templates/2/view.html',
-                    controller: '2Cams'
-                  })
-                  .when('/3', {
-                    templateUrl: 'templates/3/view.html',
-                    controller: '3Cams'
-                  })
-                  .when('/4', {
-                    templateUrl: 'templates/4/view.html',
-                    controller: '4Cams'
-                  })
-                  .when('/4R', {
-                    templateUrl: 'templates/4R/view.html',
-                    controller: '4RCams'
-                  })
-                  .when('/5', {
-                    templateUrl: 'templates/5/view.html',
-                    controller: '5Cams'
-                  })
-                  .when('/6', {
-                    templateUrl: 'templates/6/view.html',
-                    controller: '6Cams'
-                  })
-                  .when('/7', {
-                    templateUrl: 'templates/7/view.html',
-                    controller: '7Cams'
-                  })
-                  .when('/8', {
-                    templateUrl: 'templates/8/view.html',
-                    controller: '8Cams'
-                  })
-                  .when('/9', {
-                    templateUrl: 'templates/9/view.html',
-                    controller: '9Cams'
-                  })
-                  .when('/10', {
-                    templateUrl: 'templates/10/view.html',
-                    controller: '10Cams'
-                  })
-                  .when('/13', {
-                    templateUrl: 'templates/13/view.html',
-                    controller: '13Cams'
-                  })
-                  .when('/16', {
-                    templateUrl: 'templates/16/view.html',
-                    controller: '16Cams'
-                  })
-        					.when('/cameras', {
-        						templateUrl: 'templates/cameras/view.html',
-        						controller: 'CameraCtl'
-        					})
-                  .when('/about', {
-                    templateUrl: 'templates/about/view.html',
-                    controller: 'AboutCtrl'
-                  })
-        					.otherwise({
-        						redirectTo: '/cameras'
-        					});
-        			}
-        		])
-        		.controller('RootCtrl', ['$scope', '$http', function($scope, $http) {
-        			$scope.$on('$locationChangeStart', function(e, next, current) {
-        				$scope.page = next.split('/').splice(-1);
-        				$scope.styleUrl = 'templates/' + $scope.page + '/style.css'
-        			});
-  /*            // Save Camera Settings
-              $scope.saveView = function() {
-                //angular.extend(widget, $scope.form);
-                var formData = {
-                  id: $scope.page,
-                  data: $scope.standardItems,
-                }
-                console.log($scope.standardItems)
-                var jdata = 'data=' + JSON.stringify(formData);
-
-                $http({ // Accessing the Angular $http Service to send data via REST Communication to Node Server.
-                  method: 'POST',
-                  url: '/api/updateView',
-                  data: jdata,
-                  headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                  },
-                }).
-                success(function(response) {
-                  console.log("success"); // Getting Success Response in Callback
-                  $scope.codeStatus = response.data;
-                  console.log($scope.codeStatus);
-                }).
-                error(function(response) {
-                  console.log("error"); // Getting Error Response in Callback
-                  $scope.codeStatus = response || "Request failed";
-                  console.log($scope.codeStatus);
-                });
-                // Saved Confirmation Here
-              }; */
-        		}]);
-        })();
-
-    </script>
+    <script src="js/raspipc.js"></script>
     <script src="templates/cameras/script.js"></script>
-    <script src="templates/1/script.js"></script>
-    <script src="templates/2/script.js"></script>
-    <script src="templates/3/script.js"></script>
-    <script src="templates/4/script.js"></script>
-    <script src="templates/4R/script.js"></script>
-    <script src="templates/5/script.js"></script>
-    <script src="templates/6/script.js"></script>
-    <script src="templates/7/script.js"></script>
-    <script src="templates/8/script.js"></script>
-    <script src="templates/9/script.js"></script>
-    <script src="templates/10/script.js"></script>
-    <script src="templates/13/script.js"></script>
-    <script src="templates/16/script.js"></script>
+    <!-- Grid Templates -->
+    <script src="js/grids/01.js"></script>
+    <script src="js/grids/02.js"></script>
+    <script src="js/grids/03.js"></script>
+    <script src="js/grids/04.js"></script>
+    <script src="js/grids/04R.js"></script>
+    <script src="js/grids/05.js"></script>
+    <script src="js/grids/06.js"></script>
+    <script src="js/grids/07.js"></script>
+    <script src="js/grids/08.js"></script>
+    <script src="js/grids/09.js"></script>
+    <script src="js/grids/10.js"></script>
+    <script src="js/grids/13.js"></script>
+    <script src="js/grids/16.js"></script>
 </head>
 <body ng-app="app">
     <div ng-controller="RootCtrl">
-        <link rel="stylesheet" ng-href="{{ styleUrl }}" />
+        <link rel="stylesheet" ng-href="css/template-style.css" />
         <div class="navbar navbar-inverse">
             <div class="navbar-inner">
-                <a class="navbar-brand" href="#/about"><img src="rpi-icon.png" height="48px" width="48px">RasPipC</a>
+                <a class="navbar-brand" href="#/about"><img src="images/rpi-icon.png" height="48px" width="48px">RasPipC</a>
             </div>
             <ul class='nav navbar-nav navbar-middle'>
               <li ng-class="{active: page == '1Cam'}"><a href="#/1"><i class="glyphicon glyphicon-stop"></i></a></li>
@@ -164,17 +54,21 @@
               <li ng-class="{active: page == '16Cams'}"><a href="#/16">16</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li ng-class="{active: page == 'save'}"><a ng-click="saveView()"><i class="glyphicon glyphicon-play-circle"></i></a></li>
-                <li ng-class="{active: page == 'refresh'}"><a href="#/refresh"><i class="glyphicon glyphicon-refresh"></i></a></li>
+                <li ng-class="{active: page == 'save'}"><a ng-click="saveView()"><i class="glyphicon glyphicon-sound-stereo"></i></a></li>
                 <!--<li ng-class="{active: page == 'dashboard'}"><a href="#/dashboard"><i class="glyphicon glyphicon-flash"></i></a></li>-->
                 <!--<li ng-class="{active: page == 'openvpn'}"><a href="#/openvpn"><i class="glyphicon glyphicon-lock"></i></a></li>-->
-                <li ng-class="{active: page == 'update'}"><a href="#/update" target="_blank" class="code-coverage"><i class="glyphicon glyphicon-cloud-download"></i></a></li>
+                <!--<li ng-class="{active: page == 'update'}"><a href="#/update" target="_blank" class="code-coverage"><i class="glyphicon glyphicon-cloud-download"></i></a></li>-->
                 <li ng-class="{active: page == 'CameraCtl'}"><a href="#/cameras"><i class="glyphicon glyphicon-facetime-video"></i></a></li>
-                <li ng-class="{active: page == 'mute'}"><a href="#/mute"><i class="glyphicon glyphicon-headphones"></i></a></li>
-                <li ng-class="{active: page == 'mute'}"><a href="#/mute"><i class="glyphicon glyphicon-off"></i></a></li>
+                <!--<li ng-class="{active: page == 'mute'}"><a href="#/mute"><i class="glyphicon glyphicon-headphones"></i></a></li>-->
+                <li ng-class="{active: page == 'screenOff'}"><a href="#"><i class="glyphicon glyphicon-off"></i></a></li>
             </ul>
         </div>
         <div class="container" ng-view></div>
+        <div class="footer">
+          <a href="#/about"><i class="glyphicon glyphicon-info-sign"></i></a>
+          &nbsp;
+          <a href="http://raspipc.tv" target="_blank"><i class="glyphicon glyphicon-home"></i></a>
+        </div>
     </div>
 </body>
 </html>

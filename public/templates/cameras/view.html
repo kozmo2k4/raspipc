@@ -1,17 +1,17 @@
 <div class="page-header">
 	<h2 style="display: inline-block; width: 200px; color: white;">IP Cameras</h2>
 	<a class="pull-right btn btn-primary" ng-click="addWidget()"><i class="glyphicon glyphicon-plus"></i> Add Camera</a>
-	<a class="pull-right btn btn-primary" ng-click="addWidget()"><i class="glyphicon glyphicon-refresh"></i> Scan</a>
+	<a class="pull-right btn btn-primary" ng-click="addWidget()" ng-disabled="true"><i class="glyphicon glyphicon-refresh"></i> Scan</a>
 	<!--<a class="pull-right btn btn-warning" ng-click="clear()"><i class="glyphicon glyphicon-trash"></i> Clear</a>-->
 </div>
-<div gridster="gridsterOptions">
-		<li gridster-item="widget" ng-repeat="camera in cameras">
+<div gridster="gridsterOptions" >
+		<li gridster-item="camera" ng-repeat="camera in cameras">
 			<div class="box" ng-controller="CustomWidgetCtrl">
 				<div class="box-header">
 					<h3>{{ camera.name }}</h3>
 					<div class="box-header-btns pull-right">
 						<a title="settings" ng-click="openSettings(camera)"><i class="glyphicon glyphicon-cog"></i></a>
-						<a title="Remove widget" ng-click="remove(camera)"><i class="glyphicon glyphicon-trash"></i></a>
+						<a title="Remove widget" ng-click="remove(camera)" confirm="Are you sure, {{camera.name}}?"><i class="glyphicon glyphicon-trash"></i></a>
 					</div>
 				</div>
 				<div class="box-content">

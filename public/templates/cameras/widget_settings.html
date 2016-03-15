@@ -2,7 +2,8 @@
     <form name="_form" class="form-horizontal" ng-submit="submit(_form)">
         <div class="modal-header">
             <button type="button" class="close" ng-click="dismiss()" aria-hidden="true">&times;</button>
-            <h3>Configure Camera Feed</h3>
+            <h3>Configure Camera</h3>
+            <small>H264 &amp; MJPEG via RSTP/HTTP (TCP) Only</small>
         </div>
 
         <div class="modal-body">
@@ -12,24 +13,12 @@
                     <input name="name" type="text" ng-model="form.name" class="form-control" />
                 </div>
             </div>
-            <div class="form-group" ng-class="{error: _form.name.$error && _form.submitted}">
-                <label class="control-label col-lg-3 col-md-3">Host/IP</label>
+            <!--<div class="form-group" ng-class="{error: _form.name.$error && _form.submitted}">
+                <label class="control-label col-lg-3 col-md-3" style="padding-top: 12px;">Enabled</label>
                 <div class="col-lg-9 col-md-9">
-                    <input name="host" type="text" ng-model="form.host" class="form-control" />
+                    <input name="enabled" type="checkbox" ng-model="form.checkbox" checked class="form-control" />
                 </div>
-            </div>
-            <div class="form-group" ng-class="{error: _form.name.$error && _form.submitted}">
-                <label class="control-label col-lg-3 col-md-3">User Name</label>
-                <div class="col-lg-9 col-md-9">
-                    <input name="user" type="text" ng-model="form.user" class="form-control" />
-                </div>
-            </div>
-            <div class="form-group" ng-class="{error: _form.name.$error && _form.submitted}">
-                <label class="control-label col-lg-3 col-md-3">Password</label>
-                <div class="col-lg-9 col-md-9">
-                    <input name="pass" type="password" ng-model="form.pass" class="form-control" />
-                </div>
-            </div>
+            </div>-->
             <div class="form-group" ng-class="{error: _form.name.$error && _form.submitted}">
                 <label class="control-label col-lg-3 col-md-3">Feed URI</label>
                 <div class="col-lg-9 col-md-9">
@@ -42,21 +31,48 @@
                     <input name="jepg" type="text" ng-model="form.jpeg" class="form-control" />
                 </div>
             </div>
+            <!--<div class="form-group" ng-class="{error: _form.name.$error && _form.submitted}">
+                <label class="control-label col-lg-3 col-md-3">Upload Image</label>
+                <div class="col-lg-9 col-md-9">
+                    <input name="file" type="file" ng-model="form.file" class="form-control" />
+                </div>
+            </div>-->
             <div class="form-group" ng-class="{error: _form.name.$error && _form.submitted}">
                 <label class="control-label col-lg-3 col-md-3">Aspect</label>
-                <div class="col-lg-9 col-md-9">
-                    <input type="radio" name="ar" ng-model="form.ar" value="fill" /> Fill<br/>
-                    <input type="radio" name="ar" ng-model="form.ar" value="stretch"/> Stretch<br/>
-                    <input type="radio" name="ar" ng-model="form.ar" value="letterbox"/> Letterbox<br/>
+                <div class="col-lg-9 col-md-9" style="padding-top: 6px;">
+                    <input type="radio" name="ar" ng-model="form.ar" value="fill" /> Fill &nbsp;&nbsp;
+                    <input type="radio" name="ar" ng-model="form.ar" value="stretch"/> Stretch &nbsp;&nbsp;
+                    <input type="radio" name="ar" ng-model="form.ar" value="letterbox"/> Letterbox &nbsp;&nbsp;
                 </div>
             </div>
+            <hr>
+            <strong>OnVif Discovery<strong> &nbsp; <small>(Profile S)</small><br/><br/>
+            <div class="form-group" ng-class="{error: _form.name.$error && _form.submitted}">
+                <label class="control-label col-lg-3 col-md-3">Host/IP</label>
+                <div class="col-lg-9 col-md-9">
+                    <input name="host" type="text" ng-model="form.host" class="form-control" ng-disabled="true"/>
+                </div>
+            </div>
+            <div class="form-group" ng-class="{error: _form.name.$error && _form.submitted}">
+                <label class="control-label col-lg-3 col-md-3">User Name</label>
+                <div class="col-lg-9 col-md-9">
+                    <input name="user" type="text" ng-model="form.user" class="form-control" ng-disabled="true"/>
+                </div>
+            </div>
+            <div class="form-group" ng-class="{error: _form.name.$error && _form.submitted}">
+                <label class="control-label col-lg-3 col-md-3">Password</label>
+                <div class="col-lg-9 col-md-9">
+                    <input name="pass" type="password" ng-model="form.pass" class="form-control" ng-disabled="true"/>
+                </div>
+            </div>
+            <div style="float: right;padding-bottom: 10px"><a ng-click="dismiss()" class="btn btn-default" tabindex="-1" ng-disabled="true"><i class="glyphicon glyphicon-refresh"></i> Query Camera</a></div>
+            <br/>
         </div>
 
         <div class="modal-footer">
-            <a ng-click="remove()" class="btn btn-danger pull-left" tabindex="-1"><i class="glyphicon glyphicon-trash"></i>Delete</a>
-            <a ng-click="dismiss()" class="btn btn-default" tabindex="-1">OnVIF Query</a>
-            <a ng-click="dismiss()" class="btn btn-default" tabindex="-1"><i class="glyphicon glyphicon-remove"></i>Cancel</a>
-            <button type="submit" class="btn btn-primary btn-lg"><i class="glyphicon glyphicon-ok"></i>Save</button>
+            <a ng-click="remove()" class="btn btn-danger pull-left" tabindex="-1"><i class="glyphicon glyphicon-trash"></i> Delete</a>
+            <a ng-click="dismiss()" class="btn btn-default" tabindex="-1"><i class="glyphicon glyphicon-remove"></i> Cancel</a>
+            <button type="submit" class="btn btn-primary btn-lg"><i class="glyphicon glyphicon-ok"></i> Save</button>
         </div>
     </form>
 </div>

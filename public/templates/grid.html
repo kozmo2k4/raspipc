@@ -1,0 +1,16 @@
+<style>.gridster .gridster-item {
+  background-image: url('/images/camera.png') !important;
+  background-repeat:  no-repeat !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+</style>
+<div class="cameraGrid-container">
+    <div gridster="gridsterOpts">
+        <ul>
+            <li gridster-item="item" ng-repeat="item in viewItems">
+		            <div><strong>{{item.id}}</strong></div>
+            </li>
+        </ul>
+    </div>
+</div>

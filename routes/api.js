@@ -22,7 +22,9 @@ router.get('/getCameras', function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "http://localhost");
   res.header("Access-Control-Allow-Methods", "GET, POST");
   // The above 2 lines are required for Cross Domain Communication(Allowing the methods that come as Cross           // Domain Request
-  db.cameras.find('', function(err, cameras) { // Query in NeDB via NeDB Module
+  db.cameras.find({}).sort({
+    row: 1
+  }).exec(function(err, cameras) { // Query in NeDB via NeDB Module
     if (err || !cameras) console.log("No cameras found");
     else {
       res.writeHead(200, {
@@ -31,6 +33,7 @@ router.get('/getCameras', function(req, res, next) {
       str = '[';
       var i = 0;
       cameras.forEach(function(camera) {
+        //delete(camera.row)
         str = str + ',' + JSON.stringify(camera)
       });
       str = str.slice(0, 1) + str.slice(2, str.length)
@@ -61,7 +64,9 @@ router.post('/addCamera', function(req, res) {
       pass: jsonData.pass,
       feed: jsonData.feed,
       jpeg: jsonData.jpeg,
-      ar: jsonData.ar
+      ar: jsonData.ar,
+      row: jsonData.row,
+      col: jsonData.col,
     }, {
       upsert: true,
     },
@@ -69,6 +74,34 @@ router.post('/addCamera', function(req, res) {
       if (err) res.end("Camera not saved");
       else res.end("Camera saved");
     });
+});
+
+// Update Cameras
+router.post('/updateCameras', function(req, res) {
+  res.header("Access-Control-Allow-Origin", "http://localhost");
+  res.header("Access-Control-Allow-Methods", "GET, POST");
+  // The above 2 lines are required for Cross Domain Communication(Allowing the methods that come as Cross
+  // Domain Request
+  //console.log(req.body);
+  if (req.body.data) {
+    var jsonData = JSON.parse(req.body.data);
+    console.log(jsonData)
+    Object.keys(jsonData).forEach(function(key) {
+      db.cameras.update({
+          _id: jsonData[key]._id
+        }, {
+          $set: {
+            row: jsonData[key].row
+          },
+        },
+        function(err, numReplaced, upsert) { // Query in NeDB via NeDB Module
+          if (err) res.end("Camera not saved");
+          else res.end("Camera saved");
+        });
+    })
+  } else {
+    res.end("Failure");
+  }
 });
 
 // Delete Camera

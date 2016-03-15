@@ -1,0 +1,46 @@
+.navbar {
+    padding: 0 20px;
+}
+a:hover {
+    cursor: pointer;
+}
+input {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 14px;
+    padding: 4px;
+}
+.container {
+    margin: auto;
+    max-width: 1000px;
+}
+.code-coverage {
+    color: #fff;
+    font-weight: bold;
+    float: right;
+    padding: 10px;
+}
+.btn {
+  margin: 5px;
+}
+.navbar-brand {
+  padding: 0px 0px;
+}
+.navbar-middle {
+  padding: 0px 0px;
+  width: 50%;
+  left: 20%;
+  position: absolute;
+}
+
+.footer {
+  text-align: center;
+  vertical-align: bottom;
+  position: fixed;
+  bottom: 10px;
+  right: 15px;
+}
+
+.footer a {
+  color: grey;
+  text-decoration: none;
+}

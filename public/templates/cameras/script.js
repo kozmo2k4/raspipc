@@ -1,8 +1,8 @@
 angular.module('app')
 
 
-.controller('CameraCtl', ['$scope', '$http',
-	function($scope, $http) {
+.controller('CameraCtl', ['$scope', '$http', '$rootScope',
+	function($scope, $http, $rootScope) {
 		$scope.gridsterOptions = {
 			margins: [20, 20],
 			columns: 1,
@@ -20,26 +20,39 @@ angular.module('app')
 			}
 		};
 
-		$scope.list = function() {
-			var url = '/api/getCameras';
-			$http.get(url).success(function(data) {
-				$scope.cameras = data;
-			});
-		}
-		$scope.list();
+		// Load Cameras from Database
+		$rootScope.getCameras();
+		$scope.$on('gotCameras', function(event, args) {
+			$scope.cameras = args
+			console.log(args)
+			$scope.gridsterOptions.maxRows = $scope.cameras.length
+		})
+
+		// Watch for Changes and Update View
+		$scope.$watch('cameras', function(items) {
+			//console.log(items)
+			$rootScope.updateCameras(items)
+		}, true)
 
 		$scope.addWidget = function() {
-			$scope.cameras.push({
-				name: "New Camera",
-			});
+			if ($scope.cameras.length < 20) {
+				$scope.gridsterOptions.maxRows = $scope.gridsterOptions.maxRows + 1
+				$scope.cameras.push({
+					name: "New Camera",
+					ar: "fill",
+					feed: "rstp://username:password@host:554/path/to/stream",
+					jpeg: "http://username:password@host/image.cgi",
+					row: $scope.gridsterOptions.maxRows - 1
+				});
+			}
 		};
-
 	}
 ])
 
 .controller('CustomWidgetCtrl', ['$scope', '$modal', '$http',
 	function($scope, $modal, $http) {
 
+		// Remove Camera
 		$scope.remove = function(widget) {
 			var formData = {
 				id: widget._id,
@@ -55,9 +68,9 @@ angular.module('app')
 				},
 			}).
 			success(function(response) {
-				console.log("success"); // Getting Success Response in Callback
+				console.log("Camera Deleted"); // Getting Success Response in Callback
 				$scope.codeStatus = response.data;
-				console.log($scope.codeStatus);
+				$scope.gridsterOptions.maxRows = $scope.gridsterOptions.maxRows - 1
 			}).
 			error(function(response) {
 				console.log("error"); // Getting Error Response in Callback
@@ -66,8 +79,9 @@ angular.module('app')
 			});
 			$scope.cameras.splice($scope.cameras.indexOf(widget),
 				1);
-		};
+		}
 
+		// Open Settings
 		$scope.openSettings = function(widget) {
 			$modal.open({
 				scope: $scope,
@@ -97,6 +111,8 @@ angular.module('app')
 			feed: widget.feed,
 			jpeg: widget.jpeg,
 			ar: widget.ar,
+			row: widget.row,
+			col: widget.col,
 		};
 
 		$scope.dismiss = function() {
@@ -119,9 +135,9 @@ angular.module('app')
 				},
 			}).
 			success(function(response) {
-				console.log("success"); // Getting Success Response in Callback
+				console.log("Camera Deleted"); // Getting Success Response in Callback
 				$scope.codeStatus = response.data;
-				console.log($scope.codeStatus);
+				$scope.gridsterOptions.maxRows = $scope.gridsterOptions.maxRows - 1
 			}).
 			error(function(response) {
 				console.log("error"); // Getting Error Response in Callback
@@ -144,8 +160,11 @@ angular.module('app')
 				feed: widget.feed,
 				jpeg: widget.jpeg,
 				ar: widget.ar,
+				row: widget.row,
+				col: widget.col,
 				id: widget._id,
 			}
+			console.log(widget.row)
 			var jdata = 'data=' + JSON.stringify(formData);
 
 			$http({ // Accessing the Angular $http Service to send data via REST Communication to Node Server.
@@ -157,9 +176,8 @@ angular.module('app')
 				},
 			}).
 			success(function(response) {
-				console.log("success"); // Getting Success Response in Callback
+				console.log("Camera Saved"); // Getting Success Response in Callback
 				$scope.codeStatus = response.data;
-				console.log($scope.codeStatus);
 			}).
 			error(function(response) {
 				console.log("error"); // Getting Error Response in Callback
