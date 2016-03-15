@@ -9,7 +9,7 @@
     <div gridster="gridsterOpts">
         <ul>
             <li gridster-item="item" ng-repeat="item in viewItems">
-		            <div><strong>{{item.id}}</strong></div>
+		            <div><strong>{{item.id}} - {{cameras[(item.id - 1)].name}}</strong></div>
             </li>
         </ul>
     </div>

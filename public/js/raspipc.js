@@ -79,14 +79,6 @@
     // AJAX API Calls
     .run(function($rootScope, $http) {
 
-      // Get Cameras
-      $rootScope.getCameras = function() {
-        var url = '/api/getCameras';
-        $http.get(url).success(function(data) {
-          $rootScope.$broadcast('gotCameras', data)
-        });
-      }
-
       // Get Views
       $rootScope.getViews = function(page) {
         $http({ // Accessing the Angular $http Service to send data via REST Communication to Node Server.
@@ -126,6 +118,14 @@
           console.log("View Update Failed"); // Getting Error Response in Callback
           $scope.codeStatus = response || "Request failed";
           console.log($scope.codeStatus);
+        });
+      };
+
+      // Get Cameras
+      $rootScope.getCameras = function() {
+        var url = '/api/getCameras';
+        $http.get(url).success(function(data) {
+          $rootScope.$broadcast('gotCameras', data)
         });
       };
 

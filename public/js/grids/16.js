@@ -129,6 +129,9 @@ angular.module('app')
 
 	// Load Cameras from Database
 	$rootScope.getCameras();
+	$scope.$on('gotCameras', function(event, args) {
+		$scope.cameras = args
+	})
 
 	// Load Views from Database
 	$scope.viewItems = defaultView;

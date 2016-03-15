@@ -17,43 +17,6 @@ angular.module('app')
 			}
 		};
 
-		$scope.dashboards = {
-			'1': {
-				id: '1',
-				name: 'Home',
-				widgets: [{
-					col: 0,
-					row: 0,
-					sizeY: 1,
-					sizeX: 1,
-					name: "Camera 1"
-				}, {
-					col: 2,
-					row: 1,
-					sizeY: 1,
-					sizeX: 1,
-					name: "Camera 2"
-				}]
-			},
-			'2': {
-				id: '2',
-				name: 'Other',
-				widgets: [{
-					col: 1,
-					row: 1,
-					sizeY: 1,
-					sizeX: 2,
-					name: "Other Widget 1"
-				}, {
-					col: 1,
-					row: 3,
-					sizeY: 1,
-					sizeX: 1,
-					name: "Other Widget 2"
-				}]
-			}
-		};
-
 		$scope.clear = function() {
 			$scope.dashboard.widgets = [];
 		};
