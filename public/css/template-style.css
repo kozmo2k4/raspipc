@@ -46,6 +46,9 @@ form {
 .page-header {
   border-bottom: none
 }
+.cameraTitle {
+  text-shadow: 0 0 3px #FFFFFF !important;
+}
 
 .gridster .gridster-item {
     -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
