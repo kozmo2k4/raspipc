@@ -1,14 +1,15 @@
-<div class="page-header">
-	<h2 style="display: inline-block; width: 200px; color: white;">IP Cameras</h2>
-	<a class="pull-right btn btn-primary" ng-click="addWidget()"><i class="glyphicon glyphicon-plus"></i> Add Camera</a>
-	<a class="pull-right btn btn-primary" ng-click="addWidget()" ng-disabled="true"><i class="glyphicon glyphicon-refresh"></i> Scan</a>
-	<!--<a class="pull-right btn btn-warning" ng-click="clear()"><i class="glyphicon glyphicon-trash"></i> Clear</a>-->
+<div class="page-header" style="text-align:center;">
+		<h2 style="display: inline-block; width: 200px; color: white;float:left;">IP Cameras</h2>
+		<small style="color:white;">order in highest priority first, drag to organize.</small>
+		<a class="pull-right btn btn-primary" ng-click="addWidget()"><i class="glyphicon glyphicon-plus"></i> Add Camera</a>
+		<a class="pull-right btn btn-primary" ng-click="addWidget()" ng-disabled="true"><i class="glyphicon glyphicon-refresh"></i> Scan</a>
+		<!--<a class="pull-right btn btn-warning" ng-click="clear()"><i class="glyphicon glyphicon-trash"></i> Clear</a>-->
 </div>
 <div gridster="gridsterOptions" >
 		<li gridster-item="camera" ng-repeat="camera in cameras">
 			<div class="box" ng-controller="CustomWidgetCtrl">
 				<div class="box-header">
-					<h3>{{ camera.name }}</h3>
+					<h3>#{{ camera.row+1 }} {{ camera.name }}</h3>
 					<div class="box-header-btns pull-right">
 						<a title="settings" ng-click="openSettings(camera)"><i class="glyphicon glyphicon-cog"></i></a>
 						<a title="Remove widget" ng-click="remove(camera)" confirm="Are you sure, {{camera.name}}?"><i class="glyphicon glyphicon-trash"></i></a>

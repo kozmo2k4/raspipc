@@ -64,6 +64,7 @@ router.post('/addCamera', function(req, res) {
       pass: jsonData.pass,
       feed: jsonData.feed,
       jpeg: jsonData.jpeg,
+      audio: jsonData.audio,
       ar: jsonData.ar,
       row: jsonData.row,
       col: jsonData.col,

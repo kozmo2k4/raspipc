@@ -42,6 +42,7 @@ angular.module('app')
 					ar: "fill",
 					feed: "rstp://username:password@host:554/path/to/stream",
 					jpeg: "http://username:password@host/image.cgi",
+					audio: "none",
 					row: $scope.gridsterOptions.maxRows - 1
 				});
 			}
@@ -110,6 +111,7 @@ angular.module('app')
 			pass: widget.pass,
 			feed: widget.feed,
 			jpeg: widget.jpeg,
+			audio: widget.audio,
 			ar: widget.ar,
 			row: widget.row,
 			col: widget.col,
@@ -159,6 +161,7 @@ angular.module('app')
 				pass: widget.pass,
 				feed: widget.feed,
 				jpeg: widget.jpeg,
+				audio: widget.audio,
 				ar: widget.ar,
 				row: widget.row,
 				col: widget.col,
