@@ -6,7 +6,7 @@
     <title>RasPipC</title>
     <meta name="description" content="Rasperry Pi IPCamera Display" />
     <meta name="author" content="Ryan Hunt - admin@nayr.net" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" href="css/angular-gridster.min.css" />
     <link rel="stylesheet" href="css/common-style.css" />
@@ -34,25 +34,25 @@
 <body ng-app="app">
     <div ng-controller="RootCtrl">
         <link rel="stylesheet" ng-href="css/template-style.css" />
-        <div class="navbar navbar-inverse">
+        <div class="navbar navbar-collapse navbar-inverse navbar-fixed-top">
             <div class="navbar-inner">
-                <a class="navbar-brand" href="#/about"><img src="images/rpi-icon.png" height="48px" width="48px">RasPipC</a>
+                <a class="navbar-brand hidden-sm hidden-xs" href="#/about"><img src="images/rpi-icon.png" height="48px" width="48px">RasPipC</a>
             </div>
-            <ul class='nav navbar-nav navbar-middle'>
-              <li ng-class="{active: page == '1Cam'}"><a href="#/1"><i class="glyphicon glyphicon-stop"></i></a></li>
-              <li ng-class="{active: page == '2Cams'}"><a href="#/2">2</a></li>
-              <li ng-class="{active: page == '3Cams'}"><a href="#/3">3</a></li>
-              <li ng-class="{active: page == '4Cams'}"><a href="#/4"><i class="glyphicon glyphicon-th-large"></i></a></li>
-              <li ng-class="{active: page == '4RCams'}"><a href="#/4R">4</a></li>
-              <li ng-class="{active: page == '5Cams'}"><a href="#/5">5</a></li>
-              <li ng-class="{active: page == '6Cams'}"><a href="#/6">6</a></li>
-              <li ng-class="{active: page == '7Cams'}"><a href="#/7">7</a></li>
-              <li ng-class="{active: page == '8Cams'}"><a href="#/8">8</a></li>
-              <li ng-class="{active: page == '9Cams'}"><a href="#/9"><i class="glyphicon glyphicon-th"></i></a></li>
-              <li ng-class="{active: page == '10Cams'}"><a href="#/10">10</a></li>
-              <li ng-class="{active: page == '13Cams'}"><a href="#/13">13</a></li>
-              <li ng-class="{active: page == '16Cams'}"><a href="#/16">16</a></li>
-            </ul>
+            <div class="navbar-middle btn-group" role="group">
+               <a class="btn btn-default" ng-class="{active: page == '1Cam'}" href="#/1"><i class="glyphicon glyphicon-stop"></i></a>
+               <a class="btn btn-default" ng-class="{active: page == '2Cams'}" href="#/2">2</a>
+               <a class="btn btn-default" ng-class="{active: page == '3Cams'}" href="#/3">3</a>
+               <a class="btn btn-default" ng-class="{active: page == '4Cams'}" href="#/4"><i class="glyphicon glyphicon-th-large"></i></a>
+               <a class="btn btn-default" ng-class="{active: page == '4RCams'}" href="#/4R">4</a>
+               <a class="btn btn-default" ng-class="{active: page == '5Cams'}" href="#/5">5</a>
+               <a class="btn btn-default" ng-class="{active: page == '6Cams'}" href="#/6">6</a>
+               <a class="btn btn-default" ng-class="{active: page == '7Cams'}" href="#/7">7</a>
+               <a class="btn btn-default" ng-class="{active: page == '8Cams'}" href="#/8">8</a>
+               <a class="btn btn-default" ng-class="{active: page == '9Cams'}" href="#/9"><i class="glyphicon glyphicon-th"></i></a>
+               <a class="btn btn-default" ng-class="{active: page == '10Cams'}" href="#/10">10</a>
+               <a class="btn btn-default" ng-class="{active: page == '13Cams'}" href="#/13">13</a>
+               <a class="btn btn-default" ng-class="{active: page == '16Cams'}"href="#/16">16</a>
+            </div>
             <ul class="nav navbar-nav navbar-right">
                 <li ng-class="{active: page == 'save'}"><a ng-click="saveView()"><i class="glyphicon glyphicon-sound-stereo"></i></a></li>
                 <!--<li ng-class="{active: page == 'dashboard'}"><a href="#/dashboard"><i class="glyphicon glyphicon-flash"></i></a></li>-->
@@ -62,8 +62,9 @@
                 <!--<li ng-class="{active: page == 'mute'}"><a href="#/mute"><i class="glyphicon glyphicon-headphones"></i></a></li>-->
                 <!--<li ng-class="{active: page == 'screenOff'}"><a href="#"><i class="glyphicon glyphicon-off"></i></a></li>-->
             </ul>
-        </div>
+      </div>
         <div class="container" ng-view></div>
+        <div class="tip hidden-sm hidden-xs"><strong>tip: drag to rearrange</strong></div>
         <div class="footer">
           <a href="#/about"><i class="glyphicon glyphicon-info-sign"></i></a>
           &nbsp;

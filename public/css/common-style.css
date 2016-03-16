@@ -1,5 +1,6 @@
-.navbar {
+.navbar-collapse{
     padding: 0 20px;
+    text-align: center;
 }
 a:hover {
     cursor: pointer;
@@ -10,7 +11,7 @@ input {
     padding: 4px;
 }
 .container {
-    margin: auto;
+    margin-top: 70px;
     max-width: 1000px;
 }
 .code-coverage {
@@ -19,17 +20,23 @@ input {
     float: right;
     padding: 10px;
 }
-.btn {
-  margin: 5px;
+.navbar-middle .btn {
+  margin-top: 7px;
 }
+
+.btn-default {
+  color: #999999;
+  background-color: #000000;
+  border-color: #cccccc;
+}
+
 .navbar-brand {
   padding: 0px 0px;
+  margin-right: 40px;
 }
 .navbar-middle {
-  padding: 0px 0px;
-  width: 50%;
-  left: 30%;
-  position: absolute;
+  display: inline-block;
+  float: none;
 }
 
 .footer {
@@ -43,4 +50,10 @@ input {
 .footer a {
   color: grey;
   text-decoration: none;
+}
+.tip {
+  color: grey;
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
 }

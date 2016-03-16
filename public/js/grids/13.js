@@ -93,6 +93,7 @@ angular.module('app')
 		isMobile: false,
 		maxRows: 4,
 		outerMargin: false,
+		mobileModeEnabled: false,
 		pushing: false,
 		floating: true,
 		swapping: true,

@@ -61,6 +61,7 @@ angular.module('app')
 		colWidth: 250,
 		rowHeight: 141,
 		isMobile: false,
+		mobileModeEnabled: false,
 		maxRows: 4,
 		outerMargin: false,
 		pushing: false,
