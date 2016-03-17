@@ -71,7 +71,7 @@ angular.module("app")
     "BOTH": "Tous les deux",
     "DISCOVERY": "la découverte",
     "HOST": "Host/IP",
-    "USERNAME": "Nom d`utilisateur",
+    "USERNAME": "Nom d'utilisateur",
     "PASSWORD": "Mot de passe",
     "QUERYCAM": "Caméra Query",
     "DELETE": "Effacer",
