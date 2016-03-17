@@ -5,6 +5,7 @@ var router = express.Router();
 var path = require("path");
 var Datastore = require('nedb');
 var Cam = require('onvif').Cam;
+var cpuinfo = require('proc-cpuinfo')()
 var db = {};
 
 // Datastores
@@ -27,6 +28,11 @@ router.get('/detectLanguage', function(req, res) {
   } else {
     res.send('en')
   }
+});
+
+// Return Data from /proc/cpuinfo
+router.get('/getCpuInfo', function(req, res) {
+  res.send(cpuinfo)
 });
 
 // ONVIF Query

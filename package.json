@@ -14,6 +14,8 @@
     "merge": "^1.2.0",
     "morgan": "~1.5.1",
     "nedb": "^1.8.0",
+    "onvif": "^0.4.0",
+    "proc-cpuinfo": "^1.0.0",
     "serve-favicon": "~2.2.0"
   }
 }
