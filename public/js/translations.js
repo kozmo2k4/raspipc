@@ -37,7 +37,7 @@ angular.module("app")
     "CANCEL": "Cancel",
     "SAVE": "Save",
     "VERSION": "Version",
-    "CPUSERIAL": "CPU Serial",
+    "CPUSERIAL": "RPi Serial",
     "HELP": "Help (Wiki)",
     "SOURCE": "Source Code (GitHub)",
     "POWERED": "Powered by",
