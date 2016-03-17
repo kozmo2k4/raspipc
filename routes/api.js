@@ -38,7 +38,7 @@ router.get('/getCpuInfo', function(req, res) {
 // Return Data from /tmp/codec-support.json
 router.get('/getCodecSupport', function(req, res) {
   res.header("Content-Type", "application/json");
-  res.sendfile('/tmp/codec-support.json');
+  res.sendFile('/tmp/codec-support.json');
 });
 
 // ONVIF Query
