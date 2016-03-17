@@ -4,7 +4,8 @@ var express = require('express');
 var router = express.Router();
 var path = require("path");
 var Datastore = require('nedb');
-db = {};
+var Cam = require('onvif').Cam;
+var db = {};
 
 // Datastores
 var dbPath = "db/";
@@ -15,6 +16,37 @@ db.cameras = new Datastore({
 db.views = new Datastore({
   filename: dbPath + 'views.db',
   autoload: true
+});
+
+// Detect Browser Language
+router.get('/detectLanguage', function(req, res) {
+  var lang = req.acceptsLanguages('en', 'de', 'fr', 'es', 'nl', 'zh', 'it',
+    'ja', 'ko', 'no', 'ru');
+  if (lang) {
+    res.send(lang)
+  } else {
+    res.send('en')
+  }
+});
+
+// ONVIF Query
+router.post('/onvifQuery', function(req, res) {
+  res.header("Access-Control-Allow-Origin", "http://localhost");
+  res.header("Access-Control-Allow-Methods", "GET, POST");
+  console.log(req.body.host);
+  console.log(req.body.user);
+  console.log(req.body.pass);
+  new Cam({
+    hostname: req.body.host,
+    username: req.body.user,
+    password: req.body.pass
+  }, function(err) {
+    this.getStreamUri({
+      protocol: 'RTSP'
+    }, function(err, stream) {
+      res.end('stream')
+    });
+  });
 });
 
 // Get Cameras
@@ -164,14 +196,6 @@ router.post('/updateView', function(req, res) {
   }
 });
 
-// Detect Browser Language
-router.get('/detectLanguage', function(req, res) {
-  var lang = req.acceptsLanguages('en', 'de');
-  if (lang) {
-    res.send(lang)
-  } else {
-    res.send('en')
-  }
-});
+
 
 module.exports = router;
