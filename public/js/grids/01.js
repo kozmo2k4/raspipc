@@ -44,7 +44,7 @@ angular.module('app')
 	$scope.viewItems.id = 1;
 
 	$scope.changeCamera = function(camera) {
-			if (camera) $scope.viewItems.id = camera
+			$scope.viewItems.id = camera
 		}
 		//if ($rootScope.viewItems) $scope.viewItems = $rootScope.viewItems;
 		//if (!$scope.viewItems) $scope.viewItems = defaultView;
