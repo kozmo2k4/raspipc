@@ -114,7 +114,7 @@ angular.module("app")
     "STRETCH": "strecken",
     "LETTERBOX": "Letterbox",
     "AUDIOOUTPUT": "Soundausgabe",
-    "NONE": "kein Sound",
+    "NONE": "Kein Sound",
     "HDMI": "Monitorlautsprecher (HDMI)",
     "SPEAKER": "Externer Lautsprecher",
     "BOTH": "Beides",
