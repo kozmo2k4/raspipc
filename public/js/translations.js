@@ -49,11 +49,11 @@ angular.module("app")
   // French Translation - Google Translate
   $translateProvider.translations("fr", {
     "DISPLAY": "Afficher",
-    "SETTINGS": "Paramètres",
+    "SETTINGS": "Configures",
     "TIP": "astuce: faites glisser pour réorganiser",
     "IPCAMERAS": "Caméras IP",
     "CONFIGURE": "Configurer la caméra",
-    "CFGNOTICE": "H264 and MJPEG via RSTP / HTTP (TCP) seulement",
+    "CFGNOTICE": "H264 et MJPEG via RSTP / HTTP (TCP) seulement",
     "CFGMPG2": "MPEG2 Requiert License",
     "SCAN": "Balayage",
     "ADDCAMERA": "Ajouter Appareil photo",
