@@ -9,16 +9,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" href="css/angular-gridster.min.css" />
+    <link rel="stylesheet" href="css/angular-tooltips.min.css" />
     <link rel="stylesheet" href="css/common-style.css" />
     <script src="src/angular.js"></script>
     <script src="src/angular-route.min.js"></script>
     <script src="src/ui-bootstrap-tpls.min.js"></script>
     <script src="src/angular-gridster.js"></script>
+    <script src="js/angular-tooltips.min.js"></script>
     <script src="js/raspipc.js"></script>
     <script src="templates/cameras/script.js"></script>
     <!-- Grid Templates -->
     <script src="js/grids/01.js"></script>
     <script src="js/grids/02.js"></script>
+    <script src="js/grids/02S.js"></script>
     <script src="js/grids/03.js"></script>
     <script src="js/grids/04.js"></script>
     <script src="js/grids/04R.js"></script>
@@ -41,9 +44,10 @@
             <div class="navbar-middle btn-group" role="group">
                <a class="btn btn-default" ng-class="{active: page == '1Cam'}" href="#/1"><i class="raspipc-icon icon-1"></i></a>
                <a class="btn btn-default" ng-class="{active: page == '2Cams'}" href="#/2"><i class="raspipc-icon icon-2"></i></a>
+               <a class="btn btn-default" ng-class="{active: page == '2SCams'}" href="#/2S"><i class="raspipc-icon icon-2s"></i></a>
                <a class="btn btn-default" ng-class="{active: page == '3Cams'}" href="#/3"><i class="raspipc-icon icon-3"></i></a>
                <a class="btn btn-default" ng-class="{active: page == '4Cams'}" href="#/4"><i class="raspipc-icon icon-4"></i></a>
-               <a class="btn btn-default" ng-class="{active: page == '4RCams'}" href="#/4R"><i class="raspipc-icon icon-4"></i></a>
+               <a class="btn btn-default" ng-class="{active: page == '4RCams'}" href="#/4R"><i class="raspipc-icon icon-4r"></i></a>
                <a class="btn btn-default" ng-class="{active: page == '5Cams'}" href="#/5"><i class="raspipc-icon icon-5"></i></a>
                <a class="btn btn-default" ng-class="{active: page == '6Cams'}" href="#/6"><i class="raspipc-icon icon-6"></i></a>
                <a class="btn btn-default" ng-class="{active: page == '7Cams'}" href="#/7"><i class="raspipc-icon icon-7"></i></a>
@@ -53,15 +57,10 @@
                <a class="btn btn-default" ng-class="{active: page == '13Cams'}" href="#/13"><i class="raspipc-icon icon-13"></i></a>
                <a class="btn btn-default" ng-class="{active: page == '16Cams'}"href="#/16"><i class="raspipc-icon icon-16"></i></a>
             </div>
-            <ul class="nav navbar-nav navbar-right">
-                <li ng-class="{active: page == 'save'}"><a ng-click="saveView()"><i class="glyphicon glyphicon-sound-stereo"></i></a></li>
-                <!--<li ng-class="{active: page == 'dashboard'}"><a href="#/dashboard"><i class="glyphicon glyphicon-flash"></i></a></li>-->
-                <!--<li ng-class="{active: page == 'openvpn'}"><a href="#/openvpn"><i class="glyphicon glyphicon-lock"></i></a></li>-->
-                <!--<li ng-class="{active: page == 'update'}"><a href="#/update" target="_blank" class="code-coverage"><i class="glyphicon glyphicon-cloud-download"></i></a></li>-->
-                <li ng-class="{active: page == 'CameraCtl'}"><a href="#/cameras"><i class="glyphicon glyphicon-facetime-video"></i></a></li>
-                <!--<li ng-class="{active: page == 'mute'}"><a href="#/mute"><i class="glyphicon glyphicon-headphones"></i></a></li>-->
-                <!--<li ng-class="{active: page == 'screenOff'}"><a href="#"><i class="glyphicon glyphicon-off"></i></a></li>-->
-            </ul>
+            <div class="nav navbar-nav navbar-right btn-group" role="group">
+               <a class="btn btn-default" ng-class="{active: page == '1Cam'}" href="#/apply"><i class="glyphicon glyphicon-sound-stereo"></i></a>
+               <a class="btn btn-default" ng-class="{active: page == '2Cams'}" href="#/cameras"><i class="glyphicon glyphicon-facetime-video"></i></a>
+            </div>
       </div>
         <div class="container" ng-view></div>
         <div class="tip hidden-sm hidden-xs"><strong>tip: drag to rearrange</strong></div>

@@ -1,17 +1,24 @@
 // This is the Main script
 
+// angular
 (function() {
-  angular.module('app', ['gridster', 'ui.bootstrap', 'ngRoute'])
+  angular.module('app', ['gridster', 'ui.bootstrap', 'ngRoute',
+      '720kb.tooltips'
+    ])
     .config(['$routeProvider',
       function($routeProvider) {
         $routeProvider
           .when('/1', {
-            templateUrl: 'templates/grid.html',
+            templateUrl: 'templates/single.html',
             controller: '1Cam'
           })
           .when('/2', {
             templateUrl: 'templates/grid.html',
             controller: '2Cams'
+          })
+          .when('/2S', {
+            templateUrl: 'templates/grid.html',
+            controller: '2SCams'
           })
           .when('/3', {
             templateUrl: 'templates/grid.html',

@@ -1,10 +1,10 @@
 @font-face {
     font-family: 'raspipc';
-    src:    url('/fonts/raspipc.eot?8yy9a4');
-    src:    url('/fonts/raspipc.eot?8yy9a4#iefix') format('embedded-opentype'),
-        url('/fonts/raspipc.ttf?8yy9a4') format('truetype'),
-        url('/fonts/raspipc.woff?8yy9a4') format('woff'),
-        url('/fonts/raspipc.svg?8yy9a4#raspipc') format('svg');
+    src:    url('/fonts/raspipc.eot?kwa2qe');
+    src:    url('/fonts/raspipc.eot?kwa2qe#iefix') format('embedded-opentype'),
+        url('/fonts/raspipc.ttf?kwa2qe') format('truetype'),
+        url('/fonts/raspipc.woff?kwa2qe') format('woff'),
+        url('/fonts/raspipc.svg?kwa2qe#raspipc') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -23,6 +23,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
 .icon-9:before {
     content: "\e900";
 }
@@ -44,6 +45,9 @@
 .icon-6:before {
     content: "\e906";
 }
+.icon-4r:before {
+    content: "\e90c";
+}
 .icon-4:before {
     content: "\e907";
 }
@@ -53,16 +57,19 @@
 .icon-3:before {
     content: "\e909";
 }
+.icon-2s:before {
+    content: "\e90d";
+}
 .icon-2:before {
     content: "\e90a";
 }
 .icon-1:before {
     content: "\e90b";
 }
-
 .navbar-collapse{
     padding: 0 20px;
     text-align: center;
+    min-width: 1000px;
 }
 a:hover {
     cursor: pointer;
@@ -73,8 +80,8 @@ input {
     padding: 4px;
 }
 .container {
-    margin-top: 70px;
-    max-width: 1000px;
+    margin-top: 60px;
+    width: 1000px;
 }
 .code-coverage {
     color: #fff;
@@ -85,11 +92,15 @@ input {
 .navbar-middle .btn {
   margin-top: 7px;
 }
+.navbar-right {
+  margin-top: 7px;
+  padding-right: 20px;
+}
 
 .btn-default {
   color: #999999;
   background-color: #000000;
-  border-color: #cccccc;
+  border-color: #999999;
 }
 
 .navbar-brand {
