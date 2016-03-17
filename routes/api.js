@@ -170,7 +170,7 @@ router.get('/detectLanguage', function(req, res) {
   if (lang) {
     res.send(lang)
   } else {
-    res.send('not found')
+    res.send('en')
   }
 });
 
