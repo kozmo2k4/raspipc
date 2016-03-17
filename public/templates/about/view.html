@@ -1,7 +1,8 @@
 <div class="page-header" style="color: white;">
 	<h1 style="display: inline-block; width: 100%;">RasPipC</h1>
 	<ul>
-		<li>Version: 0.0.1</li><br/>
+		<li>{{ 'VERSION' | translate }}: 0.0.1</li>
+		<li>{{ 'CPUSERIAL' | translate }}: {{cpuInfo.Serial[0] }}</li><br/>
 		<li><a href="http://raspipc.tv">{{ 'HOMEPAGE' | translate }}</a></li>
 		<li><a href="http://wiki.raspipc.tv">{{ 'HELP' | translate }}</a></li>
 		<li><a href="http://github.raspipc.tv">{{ 'SOURCE' | translate }}</a></li>
@@ -30,10 +31,6 @@
 		<li>my Gramps, lost but never forgotten :(</li>
 	</ul>
 </div>
-<div class='cpuinfo' style="color: white;">
-	RPi Serial Number: {{cpuInfo.Serial }}
-</div>
-
 <div class="page-footer" style="color: white;">
 	© 2016 -   {{ 'LICENSE' | translate }}: <a href="http://www.gnu.org/licenses/gpl-3.0.en.html">GPL-3.0</a><br/><br/>
 	<small>{{ 'TMDISCLAIMER' | translate }}</small>
