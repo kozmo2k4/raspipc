@@ -39,6 +39,7 @@ angular.module("app")
     "HOMEPAGE": "Project Website",
     "VERSION": "Version",
     "HWINFO": "Raspberry Pi Hardware Details",
+    "VIDINFO": "Hardware Video Support",
     "CPUSERIAL": "Serial Number",
     "BUYLICENSE": "Purchase License Keys",
     "ENABLED": "enabled",

@@ -10,16 +10,16 @@
 	{{ 'HWINFO' | translate }}:
 	<ul>
 		<li>{{ 'CPUSERIAL' | translate }}: <strong>{{cpuInfo.Serial[0] }}</strong></li>
-		<li><table width="500px">
+		<li>{{ 'VIDINFO' | translate }}:<table width="500px">
 		<tr>
-			<td>H264: {{codecSupport.H264 }}</td>
-			<td>MPG4: {{codecSupport.MPG4 }}</td>
-			<td>MJPG: {{codecSupport.MJPG }}</td>
+			<td align="center"><i ng-show="codecSupport.H264=='enabled'" class="glyphicon glyphicon-ok"></i> <i ng-show="codecSupport.H264=='disabled'" class="glyphicon glyphicon-remove"></i> H264</td>
+			<td align="center"><i ng-show="codecSupport.MPG4=='enabled'" class="glyphicon glyphicon-ok"></i> <i ng-show="codecSupport.MPG4=='disabled'" class="glyphicon glyphicon-remove"></i> MPG4</td>
+			<td align="center"><i ng-show="codecSupport.MJPG=='enabled'" class="glyphicon glyphicon-ok"></i> <i ng-show="codecSupport.MJPG=='disabled'" class="glyphicon glyphicon-remove"></i> MJPG</td>
 		</tr>
 		<tr>
-			<td>MPG2: {{codecSupport.MPG2 }}</td>
-			<td>WVC1: {{codecSupport.WVC1 }}</td>
-			<td>WMV9: {{codecSupport.WMV9 }}</td>
+			<td align="center"><i ng-show="codecSupport.MPG2=='enabled'" class="glyphicon glyphicon-ok"></i> <i ng-show="codecSupport.MPG2=='disabled'" class="glyphicon glyphicon-remove"></i> MPG2</td>
+			<td align="center"><i ng-show="codecSupport.WVC1=='enabled'" class="glyphicon glyphicon-ok"></i> <i ng-show="codecSupport.WVC1=='disabled'" class="glyphicon glyphicon-remove"></i> WVC1</td>
+			<td align="center"><i ng-show="codecSupport.WMV9=='enabled'" class="glyphicon glyphicon-ok"></i> <i ng-show="codecSupport.WMV9=='disabled'" class="glyphicon glyphicon-remove"></i> WMV9</td>
 		</tr>
 	</table></li>
 	<li><small>&nbsp;<a href="http://www.raspberrypi.com/license-keys/" target="_blank"><i class="glyphicon glyphicon-shopping-cart"></i> {{ 'BUYLICENSE' | translate }}</a></li>
