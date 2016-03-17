@@ -164,4 +164,14 @@ router.post('/updateView', function(req, res) {
   }
 });
 
+// Detect Browser Language
+router.get('/detectLanguage', function(req, res) {
+  var lang = req.acceptsLanguages('en', 'de');
+  if (lang) {
+    res.send(lang)
+  } else {
+    res.send('not found')
+  }
+});
+
 module.exports = router;

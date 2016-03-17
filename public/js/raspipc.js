@@ -77,12 +77,16 @@
           });
       }
     ])
-    .controller('RootCtrl', ['$scope', '$http', function($scope, $http) {
-      $scope.$on('$locationChangeStart', function(e, next, current) {
-        $scope.page = next.split('/').splice(-1);
-        $scope.styleUrl = '/style.css'
-      });
-    }])
+    .controller('RootCtrl', ['$scope', '$http', '$translate', '$rootScope',
+      function($scope,
+        $http, $translate, $rootScope) {
+        $scope.$on('$locationChangeStart', function(e, next, current) {
+          $scope.page = next.split('/').splice(-1);
+          $scope.styleUrl = '/style.css'
+          $rootScope.detectLanguage()
+        });
+      }
+    ])
     .controller('AboutCtrl', ['$scope', '$http', function($scope, $http) {
       $scope.$on('$locationChangeStart', function(e, next, current) {
         $scope.page = next.split('/').splice(-1);
@@ -90,7 +94,18 @@
       });
     }])
     // AJAX API Calls
-    .run(function($rootScope, $http) {
+    .run(['$rootScope', '$http', '$translate', function($rootScope, $http,
+      $translate) {
+
+      // Detect Language
+      $rootScope.detectLanguage = function() {
+        var url = '/api/detectLanguage';
+        $http.get(url).success(function(data) {
+          console.log('language detected = ' + data)
+          $translate.use(data)
+            //$rootScope.$broadcast('languageDetected', data)
+        });
+      };
 
       // Get Views
       $rootScope.getViews = function(page) {
@@ -158,9 +173,9 @@
         }).
         error(function(response) {
           console.log("Camera Update Failed"); // Getting Error Response in Callback
-          $scope.codeStatus = response || "Request failed";
-          console.log($scope.codeStatus);
+          //$scope.codeStatus = response || "Request failed";
+          //console.log($scope.codeStatus);
         });
       };
-    })
+    }])
 })();

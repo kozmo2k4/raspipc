@@ -24,7 +24,7 @@ angular.module('app')
 		$rootScope.getCameras();
 		$scope.$on('gotCameras', function(event, args) {
 			$scope.cameras = args
-			console.log(args)
+				//console.log(args)
 			$scope.gridsterOptions.maxRows = $scope.cameras.length
 		})
 
