@@ -97,7 +97,7 @@ angular.module("app")
 
   // German Translation
   $translateProvider.translations("de", {
-    "DISPLAY": "Display",
+    "DISPLAY": "Anzeige ändern",
     "SETTINGS": "Einstellungen",
     "TIP": "Tip: 'Drag and Drop' um die Kameras neu anzuordnen",
     "IPCAMERAS": "IP Kameras",
