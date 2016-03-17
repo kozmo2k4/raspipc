@@ -3,7 +3,7 @@
 // angular
 (function() {
   angular.module('app', ['gridster', 'ui.bootstrap', 'ngRoute',
-      '720kb.tooltips'
+      'pascalprecht.translate'
     ])
     .config(['$routeProvider',
       function($routeProvider) {
@@ -78,6 +78,12 @@
       }
     ])
     .controller('RootCtrl', ['$scope', '$http', function($scope, $http) {
+      $scope.$on('$locationChangeStart', function(e, next, current) {
+        $scope.page = next.split('/').splice(-1);
+        $scope.styleUrl = '/style.css'
+      });
+    }])
+    .controller('AboutCtrl', ['$scope', '$http', function($scope, $http) {
       $scope.$on('$locationChangeStart', function(e, next, current) {
         $scope.page = next.split('/').splice(-1);
         $scope.styleUrl = '/style.css'

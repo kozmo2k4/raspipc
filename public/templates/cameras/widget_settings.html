@@ -2,25 +2,25 @@
     <form name="_form" class="form-horizontal" ng-submit="submit(_form)">
         <div class="modal-header">
             <button type="button" class="close" ng-click="dismiss()" aria-hidden="true">&times;</button>
-            <h3>Configure Camera</h3>
-            <small>H264 &amp; MJPEG via RSTP/HTTP (TCP) Only - <a href="http://www.raspberrypi.com/mpeg-2-license-key/" target="_blank">MPEG2 Requires License</a></small>
+            <h3>{{ 'CONFIGURE' | translate }}</h3>
+            <small>{{ 'CFGNOTICE' | translate }} - <a href="http://www.raspberrypi.com/mpeg-2-license-key/" target="_blank">{{ 'CFGMPG2' | translate }}</a></small>
         </div>
 
         <div class="modal-body">
             <div class="form-group" ng-class="{error: _form.name.$error && _form.submitted}">
-                <label class="control-label col-lg-3 col-md-3">Name</label>
+                <label class="control-label col-lg-3 col-md-3">{{ 'NAME' | translate }}</label>
                 <div class="col-lg-9 col-md-9">
                     <input name="name" type="text" ng-model="form.name" class="form-control" />
                 </div>
             </div>
             <div class="form-group" ng-class="{error: _form.name.$error && _form.submitted}">
-                <label class="control-label col-lg-3 col-md-3">Feed URI</label>
+                <label class="control-label col-lg-3 col-md-3">{{ 'FEEDURI' | translate }}</label>
                 <div class="col-lg-9 col-md-9">
                     <input name="feed" type="text" ng-model="form.feed" class="form-control" />
                 </div>
             </div>
             <div class="form-group" ng-class="{error: _form.name.$error && _form.submitted}">
-                <label class="control-label col-lg-3 col-md-3">JPEG URI</label>
+                <label class="control-label col-lg-3 col-md-3">{{ 'JPEGURI' | translate }}</label>
                 <div class="col-lg-9 col-md-9">
                     <input name="jepg" type="text" ng-model="form.jpeg" class="form-control" />
                 </div>
@@ -32,54 +32,54 @@
                 </div>
             </div>-->
             <div class="form-group" ng-class="{error: _form.name.$error && _form.submitted}">
-                <label class="control-label col-lg-3 col-md-3" >Aspect Ratio</label>
+                <label class="control-label col-lg-3 col-md-3" >{{ 'ASPECTRATIO' | translate }}</label>
                 <div class="col-lg-9 col-md-9">
                   <select name="ar" ng-model="form.ar" checked class="form-control">
-                    <option value="fill">Fill</option>
-                    <option value="stretch">Stretch</option>
-                    <option value="letterbox">Letterbox</option>
+                    <option value="fill">{{ 'FILL' | translate }}</option>
+                    <option value="stretch">{{ 'STRETCH' | translate }}</option>
+                    <option value="letterbox">{{ 'LETTERBOX' | translate }}</option>
                   </select>
                 </div>
             </div>
             <div class="form-group" ng-class="{error: _form.name.$error && _form.submitted}">
-                <label class="control-label col-lg-3 col-md-3">Audio Output</label>
+                <label class="control-label col-lg-3 col-md-3">{{ 'LETTERBOX' | translate }}</label>
                 <div class="col-lg-9 col-md-9">
                   <select name="audio" ng-model="form.audio" checked class="form-control">
-                    <option value="none">None</option>
-                    <option value="hdmi">HDMI</option>
-                    <option value="local">Speaker</option>
-                    <option value="both">Both</option>
+                    <option value="none">{{ 'NONE' | translate }}</option>
+                    <option value="hdmi">{{ 'HDMI' | translate }}</option>
+                    <option value="local">{{ 'SPEAKER' | translate }}</option>
+                    <option value="both">{{ 'BOTH' | translate }}</option>
                   </select>
                 </div>
             </div>
             <hr>
-            <strong>OnVif Discovery<strong> &nbsp; <small>(Profile S)</small><br/><br/>
+            <strong>OnVif {{ 'DISCOVERY' | translate }}<strong> &nbsp; <small>(Profile S)</small><br/><br/>
             <div class="form-group" ng-class="{error: _form.name.$error && _form.submitted}">
-                <label class="control-label col-lg-3 col-md-3">Host/IP</label>
+                <label class="control-label col-lg-3 col-md-3">{{ 'HOST' | translate }}</label>
                 <div class="col-lg-9 col-md-9">
                     <input name="host" type="text" ng-model="form.host" class="form-control" ng-disabled="true"/>
                 </div>
             </div>
             <div class="form-group" ng-class="{error: _form.name.$error && _form.submitted}">
-                <label class="control-label col-lg-3 col-md-3">User Name</label>
+                <label class="control-label col-lg-3 col-md-3">{{ 'USERNAME' | translate }}</label>
                 <div class="col-lg-9 col-md-9">
                     <input name="user" type="text" ng-model="form.user" class="form-control" ng-disabled="true"/>
                 </div>
             </div>
             <div class="form-group" ng-class="{error: _form.name.$error && _form.submitted}">
-                <label class="control-label col-lg-3 col-md-3">Password</label>
+                <label class="control-label col-lg-3 col-md-3">{{ 'PASSWORD' | translate }}</label>
                 <div class="col-lg-9 col-md-9">
                     <input name="pass" type="password" ng-model="form.pass" class="form-control" ng-disabled="true"/>
                 </div>
             </div>
-            <div style="float: right;padding-bottom: 10px"><a ng-click="dismiss()" class="btn btn-default" tabindex="-1" ng-disabled="true"><i class="glyphicon glyphicon-refresh"></i> Query Camera</a></div>
+            <div style="float: right;padding-bottom: 10px"><a ng-click="dismiss()" class="btn btn-default" tabindex="-1" ng-disabled="true"><i class="glyphicon glyphicon-refresh"></i> {{ 'QUERYCAM' | translate }}</a></div>
             <br/>
         </div>
 
         <div class="modal-footer">
-            <a ng-click="remove()" class="btn btn-danger pull-left" tabindex="-1"><i class="glyphicon glyphicon-trash"></i> Delete</a>
-            <a ng-click="dismiss()" class="btn btn-default" tabindex="-1"><i class="glyphicon glyphicon-remove"></i> Cancel</a>
-            <button type="submit" class="btn btn-primary btn-lg"><i class="glyphicon glyphicon-ok"></i> Save</button>
+            <a ng-click="remove()" class="btn btn-danger pull-left" tabindex="-1"><i class="glyphicon glyphicon-trash"></i> {{ 'DELETE' | translate }}</a>
+            <a ng-click="dismiss()" class="btn btn-default" tabindex="-1"><i class="glyphicon glyphicon-remove"></i> {{ 'CANCEL' | translate }}</a>
+            <button type="submit" class="btn btn-primary btn-lg"><i class="glyphicon glyphicon-ok"></i> {{ 'SAVE' | translate }}</button>
         </div>
     </form>
 </div>

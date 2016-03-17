@@ -15,8 +15,10 @@
     <script src="src/angular-route.min.js"></script>
     <script src="src/ui-bootstrap-tpls.min.js"></script>
     <script src="src/angular-gridster.js"></script>
+    <script src="src/angular-translate.min.js"></script>
     <script src="js/angular-tooltips.min.js"></script>
     <script src="js/raspipc.js"></script>
+    <script src="js/translations.js"></script>
     <script src="templates/cameras/script.js"></script>
     <!-- Grid Templates -->
     <script src="js/grids/01.js"></script>
@@ -58,12 +60,12 @@
                <a class="btn btn-default" ng-class="{active: page == '16Cams'}"href="#/16"><i class="raspipc-icon icon-16"></i></a>
             </div>
             <div class="nav navbar-nav navbar-right btn-group" role="group">
-               <a class="btn btn-default" ng-class="{active: page == '1Cam'}" href="#/apply"><i class="glyphicon glyphicon-sound-stereo"></i></a>
-               <a class="btn btn-default" ng-class="{active: page == '2Cams'}" href="#/cameras"><i class="glyphicon glyphicon-facetime-video"></i></a>
+               <a class="btn btn-default" ng-class="{active: page == '1Cam'}" href="#/apply"><i class="glyphicon glyphicon-sound-stereo"></i> {{ 'DISPLAY' | translate }}</a>
+               <a class="btn btn-default" ng-class="{active: page == '2Cams'}" href="#/cameras"><i class="glyphicon glyphicon-facetime-video"></i> {{ 'SETTINGS' | translate }}</a>
             </div>
       </div>
         <div class="container" ng-view></div>
-        <div class="tip hidden-sm hidden-xs"><strong>tip: drag to rearrange</strong></div>
+        <div class="tip hidden-sm hidden-xs"><strong>{{ 'TIP' | translate }}</strong></div>
         <div class="footer">
           <a href="#/about"><i class="glyphicon glyphicon-info-sign"></i></a>
           &nbsp;
