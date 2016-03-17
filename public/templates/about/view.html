@@ -2,11 +2,27 @@
 	<h1 style="display: inline-block; width: 100%;">RasPipC</h1>
 	<ul>
 		<li>{{ 'VERSION' | translate }}: 0.0.1</li>
-		<li><small>{{ 'CPUSERIAL' | translate }}: {{cpuInfo.Serial[0] }}</small></li><br/>
 		<li><a href="http://raspipc.tv">{{ 'HOMEPAGE' | translate }}</a></li>
 		<li><a href="http://wiki.raspipc.tv">{{ 'HELP' | translate }}</a></li>
 		<li><a href="http://github.raspipc.tv">{{ 'SOURCE' | translate }}</a></li>
 	</ul>
+
+	{{ 'HWINFO' | translate }}:
+	<ul>
+		<li>{{ 'CPUSERIAL' | translate }}: {{cpuInfo.Serial[0] }}</li>
+		<li><table width="500px">
+		<tr>
+			<td>H264: {{codecSupport.H264 }}</td>
+			<td>MPG4: {{codecSupport.MPG4 }}</td>
+			<td>MJPG: {{codecSupport.MJPG }}</td>
+		</tr>
+		<tr>
+			<td>MPG2: {{codecSupport.MPG2 }}</td>
+			<td>WVC1: {{codecSupport.WVC1 }}</td>
+			<td>WMV9: {{codecSupport.WMV9 }}</td>
+		</tr>
+	</table></li>
+</ul>
 
   {{ 'POWERED' | translate }}:
 	<ul>

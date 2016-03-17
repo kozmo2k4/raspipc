@@ -35,6 +35,12 @@ router.get('/getCpuInfo', function(req, res) {
   res.send(cpuinfo)
 });
 
+// Return Data from /tmp/codec-support.json
+router.get('/getCodecSupport', function(req, res) {
+  res.header("Content-Type", "application/json");
+  res.sendfile('/tmp/codec-support.json');
+});
+
 // ONVIF Query
 router.post('/onvifQuery', function(req, res) {
   res.header("Access-Control-Allow-Origin", "http://localhost");
