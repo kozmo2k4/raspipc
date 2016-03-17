@@ -41,10 +41,11 @@ angular.module('app')
 
 	// Load Views from Database
 	$scope.viewItems = defaultView;
-	$rootScope.getViews($scope.page[0])
-	$scope.$on('viewBroadcast', function(event, args) {
-			$scope.viewItems = args
-		})
+	$scope.viewItems.id = 1;
+
+	$scope.changeCamera = function(camera) {
+			if (camera) $scope.viewItems.id = camera
+		}
 		//if ($rootScope.viewItems) $scope.viewItems = $rootScope.viewItems;
 		//if (!$scope.viewItems) $scope.viewItems = defaultView;
 

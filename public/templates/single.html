@@ -27,8 +27,8 @@ border-radius: 4px;
 <div class="cameraGrid-container">
     <div gridster="gridsterOpts">
         <ul>
-            <li gridster-item="item" ng-repeat="item in viewItems">
-		            <div class="cameraTitle"><strong>{{item.id}} - {{cameras[(item.id - 1)].name}}</strong></div>
+          <li gridster-item="item" ng-repeat="item in viewItems">
+		            <div class="cameraTitle"><strong>{{viewItems.id}} - {{cameras[viewItems.id].name}}</strong></div>
                 <!--<div class="vlc">
                   <object classid="clsid:9BE31822-FDAD-461B-AD51-BE1D1C159921" codebase="http://download.videolan.org/pub/videolan/vlc/last/win32/axvlc.cab" id="vlc">
                     <embed type="application/x-vlc-plugin" target="{{cameras[(item.id - 1)].feed}}" height="{{ gridsterOptions.rowHeight }}" width="{{ gridsterOptions.colWidth }}">
@@ -41,6 +41,6 @@ border-radius: 4px;
 </div><br/>
 <div class="nav" width="100%" style="text-align:center; color: white;">
   <div class="navbar-middle btn-group" role="group">
-    <a class="btn btn-default" ng-repeat="camera in cameras" href="#/1">{{camera.row + 1}} </a>
+    <a class="btn btn-default" ng-repeat="camera in cameras" ng-click="changeCamera(camera.row + 1)">{{camera.row + 1}}</a>
   </div>
 </div>
