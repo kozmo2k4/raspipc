@@ -33,11 +33,15 @@ angular.module('app')
 		}
 	};
 
-	// Translate Aspect Ratios to CSS
-	$scope.aspectRatioCSS = function(ar) {
-		if ($ar === 'fill') return ('background-size: cover !important;');
-		if ($ar === 'stretch') return ('background-size: auto !important;');
-		if ($ar === 'letterbox') return ('background-size: contain !important;');
+	// Translate Aspect Ratio Settings into CSS
+	$scope.getBackgroundSize = function(ar) {
+		if (ar === 'stretch') {
+			return '100% 100%'
+		} else if (ar === 'letterbox') {
+			return 'contain'
+		} else {
+			return 'cover'
+		}
 	}
 
 	// Load Cameras from Database
@@ -51,10 +55,12 @@ angular.module('app')
 	$scope.viewItems.id = 1;
 
 	$scope.changeCamera = function(camera) {
-			$scope.viewItems.id = camera
-		}
-		//if ($rootScope.viewItems) $scope.viewItems = $rootScope.viewItems;
-		//if (!$scope.viewItems) $scope.viewItems = defaultView;
+		$scope.viewItems.id = camera
+		$scope.camStyle = "{ 'background-image': 'url('" + $scope.cameras[camera]
+			.jpeg + "')',  'background-size': " + getBackgroundSize($scope.cameras[
+				camera].ar) + " }"
+	}
+
 
 	// Watch for Changes and Update View
 	$scope.$watch('viewItems', function(items) {

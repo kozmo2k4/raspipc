@@ -9,7 +9,8 @@ angular.module('app')
 			pushing: true,
 			floating: false,
 			swapping: true,
-			rowHeight: 90,
+			rowHeight: 50,
+			outerMargin: true,
 			defaultSizeX: 1,
 			defaultSizeY: 1,
 			resizable: {

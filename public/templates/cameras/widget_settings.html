@@ -72,13 +72,13 @@
                     <input name="pass" type="password" ng-model="form.pass" class="form-control" ng-disabled="true"/>
                 </div>
             </div>
-            <div style="float: right;padding-bottom: 10px"><a ng-click="dismiss()" class="btn btn-default" tabindex="-1" ng-disabled="true"><i class="glyphicon glyphicon-refresh"></i> {{ 'QUERYCAM' | translate }}</a></div>
+            <div style="float: right;padding-bottom: 10px"><a ng-click="dismiss()" class="btn btn-info" tabindex="-1" ng-disabled="true"><i class="glyphicon glyphicon-refresh"></i> {{ 'QUERYCAM' | translate }}</a></div>
             <br/>
         </div>
 
         <div class="modal-footer">
             <a ng-click="remove()" class="btn btn-danger pull-left" tabindex="-1"><i class="glyphicon glyphicon-trash"></i> {{ 'DELETE' | translate }}</a>
-            <a ng-click="dismiss()" class="btn btn-default" tabindex="-1"><i class="glyphicon glyphicon-remove"></i> {{ 'CANCEL' | translate }}</a>
+            <a ng-click="dismiss()" class="btn btn-warning" tabindex="-1"><i class="glyphicon glyphicon-remove"></i> {{ 'CANCEL' | translate }}</a>
             <button type="submit" class="btn btn-primary btn-lg"><i class="glyphicon glyphicon-ok"></i> {{ 'SAVE' | translate }}</button>
         </div>
     </form>
