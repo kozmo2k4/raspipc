@@ -1,4 +1,4 @@
-# rasIPC.tv - RASPberry powered IPCamera to TV
+# RASPberry powered IPCamera to TV
 ## About
 Pronounced: Ras - Pip - See - Tee - Vee
 
@@ -10,6 +10,9 @@ raspIPC.tv is a fancy web interface for omxplayer, the Raspberry Pi command line
 Loaded up on a Raspberry Pi, a $35 credit card sized computer, It allows you to quickly and easily get your security cameras video feeds displayed on your Television with many great layouts that you can customize.
 
 In CCTV lingo it is an IP-Feed to HDMI adapter with a nice browser interface.
+
+### Online Demo:
+* Availability limited, running off a real pi so please be nice: [demo.raspipc.tv](http://demo.raspipc.tv)
 
 #### Features (95% Complete)
 * RSTP/HTTP H264/MJPEG/MPEG2 (TCP) Video Streaming
