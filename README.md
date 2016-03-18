@@ -1,4 +1,4 @@
-# RASPberry IPCamera TV
+# rasIPC.tv - RASPberry powered IPCamera to TV
 ## About
 Pronounced: Ras - Pip - See - Tee - Vee
 
@@ -6,7 +6,7 @@ Goal: Display security cameras on a TV or dedicated Monitor; all managed remotel
 
 > Under Very Heavy Development - NON FUNCTIONAL
 
-RasPipC.tv is a fancy web interface for omxplayer, the Raspberry Pi command line video player.
+raspIPC.tv is a fancy web interface for omxplayer, the Raspberry Pi command line video player.
 Loaded up on a Raspberry Pi, a $35 credit card sized computer, It allows you to quickly and easily get your security cameras video feeds displayed on your Television with many great layouts that you can customize.
 
 In CCTV lingo it is an IP-Feed to HDMI adapter with a nice browser interface.
@@ -47,7 +47,7 @@ In CCTV lingo it is an IP-Feed to HDMI adapter with a nice browser interface.
 > The Raspberry Pi was chosen because it has excellent video performance for such a tiny and affordable little machine. It has hardware support for H264 MPEG4 MJPG MPEG2 video formats which covers basically all IP Cameras. (no h265 sorry)
 
 ### Screenshots
-![screenshot](screenshots/fourCams.png "4 Cameras")
-![screenshot](screenshots/fiveCamsCustom.png "5 Cameras Custom")
-![screenshot](screenshots/camConfig.png "Configure")
-![screenshot](screenshots/about.png "About Page")
+![screenshot](https://raw.githubusercontent.com/nayrnet/raspipc/master/screenshots/fourCams.png "4 Cameras")
+![screenshot](https://raw.githubusercontent.com/nayrnet/raspipc/master/screenshots/fiveCamsCustom.png "5 Cameras Custom")
+![screenshot](https://raw.githubusercontent.com/nayrnet/raspipc/master/screenshots/camConfig.png "Configure")
+![screenshot](https://raw.githubusercontent.com/nayrnet/raspipc/master/screenshots/about.png "About Page")
