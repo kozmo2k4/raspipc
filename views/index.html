@@ -75,11 +75,12 @@
         <div class="container" ng-view></div>
         <div class="tip hidden-sm hidden-xs"><strong>{{ 'TIP' | translate }}</strong></div>
         <div class="footer">
-          <a ng-click="#/update"><i class="glyphicon glyphicon-download"></i></a>
+          <a ng-href="#/update" uib-tooltip="{{ 'UPDATEBTN' | translate }}"><i class="glyphicon glyphicon-download"></i></a>
           &nbsp;
-          <a href="#/about"><i class="glyphicon glyphicon-info-sign"></i></a>
+          <a href="#/about" uib-tooltip="{{ 'ABOUTBTN' | translate }}"><i class="glyphicon glyphicon-info-sign"></i></a>
           &nbsp;
-          <a href="http://raspipc.tv" target="_blank"><i class="glyphicon glyphicon-home"></i></a>
+          <a href="http://raspipc.tv"  uib-tooltip="raspIPC.tv" tooltip-placement="left"><i class="glyphicon glyphicon-home"></i></a>
+          &nbsp;
         </div>
     </div>
 </body>

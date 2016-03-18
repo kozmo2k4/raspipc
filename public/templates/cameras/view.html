@@ -10,8 +10,8 @@
 				<div class="box-header">
 					<h3>#{{ camera.row+1 }} {{ camera.name }}</h3>
 					<div class="box-header-btns pull-right">
-						<a title="settings" ng-click="openSettings(camera)"><i class="glyphicon glyphicon-cog"></i></a>
-						<a title="Remove widget" ng-click="remove(camera)" confirm="Delete {{camera.name}}?"><i class="glyphicon glyphicon-trash"></i></a>
+						<a title="settings" ng-click="openSettings(camera)" tooltip-placement="left" uib-tooltip="{{ 'SETTINGS' | translate }}"><i class="glyphicon glyphicon-cog"></i></a>
+						<a title="Remove widget" ng-click="remove(camera)" tooltip-placement="right" uib-tooltip="{{ 'DELETE' | translate }}" confirm="{{ 'DELETE' | translate }} {{camera.name}}?"><i class="glyphicon glyphicon-trash"></i></a>
 					</div>
 				</div>
 				<div class="box-content">

@@ -32,6 +32,8 @@
   "DELETE": "Delete",
   "CANCEL": "Cancel",
   "SAVE": "Save",
+  "ABOUTBTN": "About",
+  "UPDATEBTN": "Check for updates",
   "HOMEPAGE": "Project Website",
   "VERSION": "Version",
   "HWINFO": "Raspberry Pi Hardware Details",

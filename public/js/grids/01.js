@@ -54,13 +54,16 @@ angular.module('app')
 	$scope.viewItems = defaultView;
 	$scope.viewItems.id = 1;
 
+	// Change Cameras in FullScreen Buttons
 	$scope.changeCamera = function(camera) {
 		$scope.viewItems.id = camera
-		$scope.camStyle = "{ 'background-image': 'url('" + $scope.cameras[camera]
-			.jpeg + "')',  'background-size': " + getBackgroundSize($scope.cameras[
-				camera].ar) + " }"
+		image = $scope.cameras[camera].jpeg
+		var ar = $scope.cameras[camera].ar
+		if (image) {
+			$scope.camStyle = "{ 'background-image': 'url('" + image + "')',  'background-size': " +
+				$scope.getBackgroundSize(ar) + " }";
+		}
 	}
-
 
 	// Watch for Changes and Update View
 	$scope.$watch('viewItems', function(items) {
