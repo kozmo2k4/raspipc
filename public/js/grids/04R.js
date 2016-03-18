@@ -58,6 +58,22 @@ angular.module('app')
 		$scope.cameras = args
 	})
 
+	// Translate Aspect Ratio Settings into CSS
+	$scope.getBackgroundSize = function(ar) {
+		if (ar === 'stretch') {
+			return '100% 100%'
+		} else if (ar === 'letterbox') {
+			return 'contain'
+		} else {
+			return 'cover'
+		}
+	}
+
+	$scope.$on('viewBroadcast', function(event, args) {
+		$scope.viewItems = args
+	})
+
+
 	// Load Views from Database
 	$scope.viewItems = defaultView;
 	$rootScope.getViews($scope.page[0])

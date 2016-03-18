@@ -47,7 +47,15 @@ form {
   border-bottom: none
 }
 .cameraTitle {
-  text-shadow: 0 0 3px #FFFFFF !important;
+  text-shadow: 0 0 4px #000 !important;
+  height: 100%;
+  width: 100%;
+  color: #FFF;
+  font-size: 1.5em;
+  padding-left: 10px;
+  background-repeat:  no-repeat !important;
+  background-position: center !important;
+  background-color: #000;
 }
 
 .gridster .gridster-item {
@@ -56,5 +64,4 @@ form {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     color: #004756;
     background: #ffffff;
-    padding: 10px;
 }

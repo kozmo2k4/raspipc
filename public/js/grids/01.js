@@ -26,12 +26,19 @@ angular.module('app')
 		floating: true,
 		swapping: true,
 		draggable: {
-			enabled: true
+			enabled: false
 		},
 		resizable: {
 			enabled: false,
 		}
 	};
+
+	// Translate Aspect Ratios to CSS
+	$scope.aspectRatioCSS = function(ar) {
+		if ($ar === 'fill') return ('background-size: cover !important;');
+		if ($ar === 'stretch') return ('background-size: auto !important;');
+		if ($ar === 'letterbox') return ('background-size: contain !important;');
+	}
 
 	// Load Cameras from Database
 	$rootScope.getCameras();

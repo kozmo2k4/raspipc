@@ -41,7 +41,7 @@ angular.module('app')
 					name: "New Camera",
 					ar: "fill",
 					feed: "rstp://username:password@host:554/path/to/stream",
-					jpeg: "http://username:password@host/image.cgi",
+					jpeg: "/images/camera.png",
 					audio: "none",
 					row: $scope.gridsterOptions.maxRows - 1
 				});

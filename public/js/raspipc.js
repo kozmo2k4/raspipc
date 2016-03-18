@@ -87,6 +87,26 @@
         });
       }
     ])
+    // Calculate Camera Aspect Ratios for Grid background
+    .directive('backImg', function() {
+      return function(scope, element, attrs) {
+        attrs.$observe('backImg', function(value) {
+          if (attrs.ar === 'fill') {
+            element.css({
+              'background-size': 'cover !important'
+            })
+          } else if (attrs.ar === 'stretch') {
+            element.css({
+              'background-size': '100% 100% !important'
+            })
+          } else if (attrs.ar === 'letterbox') {
+            element.css({
+              'background-size': 'contain !important'
+            })
+          }
+        })
+      }
+    })
     // AJAX API Calls
     .run(['$rootScope', '$http', '$translate', function($rootScope, $http,
       $translate) {

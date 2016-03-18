@@ -18,7 +18,7 @@ angular.module("app")
     "ADDCAMERA": "Add Camera",
     "NAME": "Name",
     "FEEDURI": "Feed URI",
-    "JPEGURI": "JPEG URI",
+    "JPEGURI": "Preview URI",
     "ASPECTRATIO": "Aspect Ratio",
     "FILL": "Fill",
     "STRETCH": "Stretch",

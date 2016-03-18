@@ -1,9 +1,15 @@
 <style>.gridster .gridster-item {
-  background-image: url('/images/camera.png') !important;
   background-repeat:  no-repeat !important;
   background-size: cover !important;
   background-position: center !important;
 }
+
+.cameraTitle {
+  background-repeat:  no-repeat !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
 .form-control {
 display: block;
 width: 33% !important;
@@ -28,13 +34,9 @@ border-radius: 4px;
     <div gridster="gridsterOpts">
         <ul>
           <li gridster-item="item" ng-repeat="item in viewItems">
-		            <div class="cameraTitle"><strong>{{viewItems.id}} - {{cameras[viewItems.id - 1].name}}</strong></div>
-                <!--<div class="vlc">
-                  <object classid="clsid:9BE31822-FDAD-461B-AD51-BE1D1C159921" codebase="http://download.videolan.org/pub/videolan/vlc/last/win32/axvlc.cab" id="vlc">
-                    <embed type="application/x-vlc-plugin" target="{{cameras[(item.id - 1)].feed}}" height="{{ gridsterOptions.rowHeight }}" width="{{ gridsterOptions.colWidth }}">
-                    </embed>
-                  </object>
-                </div>-->
+		            <div class="cameraTitle" style="background-image: url('{{ cameras[viewItems.id - 1].jpeg}} ') !important;">
+                  <strong>#{{viewItems.id}} {{cameras[viewItems.id - 1].name}}</strong>
+                </div>
             </li>
         </ul>
     </div>
