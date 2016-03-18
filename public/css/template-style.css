@@ -9,6 +9,7 @@ body {
 }
 .page-header {
     margin-top: -20px;
+    position: absolute;
 }
 ul {
     list-style: none;

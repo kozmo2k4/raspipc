@@ -14,7 +14,7 @@ angular.module("app")
     "CONFIGURE": "Configure Camera",
     "CFGNOTICE": "H264 and MJPEG via RSTP/HTTP (TCP) Only",
     "CFGMPG2": "MPEG2 Requires License",
-    "SCAN": "Scan",
+    "SCAN": "Scan Network",
     "ADDCAMERA": "Add Camera",
     "NAME": "Name",
     "FEEDURI": "Feed URI",

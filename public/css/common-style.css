@@ -130,3 +130,10 @@ input {
   bottom: 10px;
   left: 10px;
 }
+.rpi-board {
+    position: relative;
+    top: 100px;
+    left: 60%;
+    z-index: -1;
+    float: left;
+}
