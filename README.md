@@ -1,32 +1,28 @@
-# RASpberry PI IPCamera Display
+# RASPberry IPCamera
 ## About
 Pronounced: Ras - Pip - See
 
-Goal: Easily display security cameras on a dedicated monitor managed via simple and modern WebUI.
+Goal: Display security cameras on a TV or dedicated Monitor; all managed remotely with a simple and modern WebUI.
 
 > Under Very Heavy Development - NON FUNCTIONAL
 
-#### Features (mostly planned, not all implemented)
-* RSTP H264 & MJPEG TCP Video Streaming
-* 1/2/4/5/6/7/8/9/10/13/16 Grid Displays
+#### Features (95% Complete)
+* RSTP/HTTP H264/MJPEG/MPEG2 (TCP) Video Streaming
+* 1-10/13/16 Camera Grid Displays
+* Multi-language Support
 * Letterbox/Stretch/Fill Aspect Ratios
 * WebUI for easy setup
   * Drag and drop arrangement
   * ONViF Detection
-  * Real image in mockup
+  * Preview Image
 * Stream Watchdog
   * Restarts dropped streams
   * Durring outage, displays next highest priority
-* External IO for monitor
-* Home Automation Integration
-  * MQTT API
-  * RESTful URL API
 * Raspbian Jessie image - boot and go!
-  * Nginx Proxy for external auth support
-  * ONViF Discovery on first boot
 
 ### Requirements:
 * Compatible RSTP or HTTP Video streams
+  * Note that MPEG2 Decoding requires the purchase of an external license.
 * Raspberry Pi2 or newer
 * Wired Ethernet for best results
 * Monitor connected via HDMI
