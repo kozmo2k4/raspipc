@@ -7,9 +7,12 @@ body {
 .controls {
     margin-bottom: 20px;
 }
-.page-header {
+.about-page {
     margin-top: -20px;
     position: absolute;
+}
+.page-header {
+    margin-top: -20px;
 }
 ul {
     list-style: none;
