@@ -62,7 +62,9 @@
                <a class="btn btn-default" ng-class="{active: page == '16Cams'}"href="#/16"><i class="raspipc-icon icon-16"></i></a>
             </div>
             <div class="nav navbar-nav navbar-right btn-group" role="group">
-               <a class="btn btn-default" ng-class="{active: page == '1Cam'}" ng-click="applyView()" confirm="{{ 'DISPLAYCFRM' | translate }}" confirm-title="{{ 'DCONFIRMTITLE' | translate }}" confirm-ok="{{ 'YES' | translate }}">
+               <a class="btn btn-default" ng-class="{active: page == '1Cam'}"
+                ng-click="applyView()" confirm="{{ 'DISPLAYCFRM' | translate }}" confirm-title="{{ 'DCONFIRMTITLE' | translate }}" confirm-ok="{{ 'YES' | translate }}"
+                ng-disabled="false">
                  <i class="glyphicon glyphicon-blackboard"></i> {{ 'DISPLAY' | translate }}
                </a>
                <a class="btn btn-default" ng-class="{active: page == '2Cams'}" href="#/cameras">

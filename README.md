@@ -1,6 +1,6 @@
-# RASPberry IPCamera
+# RASPberry IPCamera TV
 ## About
-Pronounced: Ras - Pip - See
+Pronounced: Ras - Pip - See - Tee - Vee
 
 Goal: Display security cameras on a TV or dedicated Monitor; all managed remotely with a simple and modern WebUI.
 
@@ -29,7 +29,7 @@ Goal: Display security cameras on a TV or dedicated Monitor; all managed remotel
   * FYI: Aspect Ratios will be identical to your display
 
 ### Screenshots
-![screenshot](screenshots/Screen Shot 2016-03-13 at 6.23.48 AM.png "Screenshot")
-![screenshot](screenshots/Screen Shot 2016-03-13 at 6.23.51 AM.png "Screenshot")
-![screenshot](screenshots/Screen Shot 2016-03-13 at 6.24.05 AM.png "Screenshot")
-![screenshot](screenshots/Screen Shot 2016-03-13 at 6.24.14 AM.png "Screenshot")
+![screenshot](screenshots/fourCams.png "4 Cameras")
+![screenshot](screenshots/fiveCamsCustom.png "5 Cameras Custom")
+![screenshot](screenshots/camConfig.png "Configure")
+![screenshot](screenshots/about.png "About Page")
