@@ -7,7 +7,7 @@
     <meta name="description" content="Rasperry Pi IPCamera Display" />
     <meta name="author" content="Ryan Hunt - admin@nayr.net" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/angular-gridster.min.css" />
     <link rel="stylesheet" href="css/angular-tooltips.min.css" />
     <link rel="stylesheet" href="css/common-style.css" />
@@ -16,6 +16,7 @@
     <script src="src/ui-bootstrap-tpls.min.js"></script>
     <script src="src/angular-gridster.min.js"></script>
     <script src="src/angular-translate.min.js"></script>
+    <script src="src/angular-confirm.min.js"></script>
     <script src="js/raspipc.js"></script>
     <script src="js/translations.js"></script>
     <script src="templates/cameras/script.js"></script>
@@ -60,7 +61,7 @@
                <a class="btn btn-default" ng-class="{active: page == '16Cams'}"href="#/16"><i class="raspipc-icon icon-16"></i></a>
             </div>
             <div class="nav navbar-nav navbar-right btn-group" role="group">
-               <a class="btn btn-default" ng-class="{active: page == '1Cam'}" href="#/apply"><i class="glyphicon glyphicon-sound-stereo"></i> {{ 'DISPLAY' | translate }}</a>
+               <a class="btn btn-default" ng-class="{active: page == '1Cam'}" href="#/apply"><i class="glyphicon glyphicon-blackboard"></i> {{ 'DISPLAY' | translate }}</a>
                <a class="btn btn-default" ng-class="{active: page == '2Cams'}" href="#/cameras"><i class="glyphicon glyphicon-facetime-video"></i> {{ 'SETTINGS' | translate }}</a>
             </div>
       </div>

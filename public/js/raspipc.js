@@ -3,7 +3,7 @@
 // angular
 (function() {
   angular.module('app', ['gridster', 'ui.bootstrap', 'ngRoute',
-      'pascalprecht.translate'
+      'pascalprecht.translate', 'angular-confirm'
     ])
     .config(['$routeProvider',
       function($routeProvider) {

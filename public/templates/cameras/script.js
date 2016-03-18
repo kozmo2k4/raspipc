@@ -1,7 +1,7 @@
 angular.module('app')
 
 
-.controller('CameraCtl', ['$scope', '$http', '$rootScope',
+.controller('CameraCtl', ['$scope', '$http', '$rootScope', '$confirm',
 	function($scope, $http, $rootScope) {
 		$scope.gridsterOptions = {
 			margins: [20, 20],
@@ -51,7 +51,8 @@ angular.module('app')
 	}
 ])
 
-.controller('CustomWidgetCtrl', ['$scope', '$modal', '$http',
+.controller('CustomWidgetCtrl', ['$scope', '$uibModal', '$http',
+
 	function($scope, $modal, $http) {
 
 		// Remove Camera
@@ -101,7 +102,7 @@ angular.module('app')
 ])
 
 .controller('WidgetSettingsCtrl', ['$scope', '$timeout', '$rootScope',
-	'$modalInstance', 'widget', '$http',
+	'$uibModalInstance', 'widget', '$http',
 	function($scope, $timeout, $rootScope, $modalInstance, widget, $http) {
 		$scope.widget = widget;
 

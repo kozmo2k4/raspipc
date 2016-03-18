@@ -145,3 +145,6 @@ input {
     z-index: -1;
     float: left;
 }
+.navbar-brand>img {
+    display: inline !important;
+}
