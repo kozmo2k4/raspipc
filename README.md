@@ -8,6 +8,7 @@ Goal: Display security cameras on a TV or dedicated Monitor; all managed remotel
 
 RasPipC.tv is a fancy web interface for omxplayer, the Raspberry Pi command line video player.
 Loaded up on a Raspberry Pi, a $35 credit card sized computer, It allows you to quickly and easily get your security cameras video feeds displayed on your Television with many great layouts that you can customize.
+
 In CCTV lingo it is an IP-Feed to HDMI adapter with a nice browser interface.
 
 #### Features (95% Complete)
@@ -25,12 +26,25 @@ In CCTV lingo it is an IP-Feed to HDMI adapter with a nice browser interface.
 * Raspbian Jessie image - boot and go!
 
 ### Requirements:
-* Compatible RSTP or HTTP Video streams
+* Camera feeds in a compatible encoding via RSTP or HTTP.
   * Note that MPEG2 Decoding requires the purchase of an external license.
-* Raspberry Pi2 or newer
-* Wired Ethernet for best results
-* Monitor connected via HDMI
-  * FYI: Aspect Ratios will be identical to your display
+  * Test your cameras by trying to play a stream in VideoLAN Client (VLC Player).
+* Raspberry Pi2 or newer.
+* MicroSD Memory Card - 8GB - 64GB.
+* Wired Ethernet for best results, cams will drop out all the time on WiFi.
+* TV/Monitor connected via HDMI.
+  * FYI: Aspect Ratios will be identical to your display.
+  * DVI Adapters work fine.
+  * Displays can be powered on/off with a GPIO port.
+
+### Suggestions:
+* Monitors with wide viewing angles are best for dedicated displays.
+* Avoid displays with glossy coatings, anti-glare is supreme for IPC.
+* VESA Mounts for Raspberry Pi cases work great.
+* Buy a high quality MicroSD Card, this wont need much space.
+
+### Raspberry Pi Video
+> The Raspberry Pi was chosen because it has excellent video performance for such a tiny and affordable little machine. It has hardware support for H264 MPEG4 MJPG MPEG2 video formats which covers basically all IP Cameras. (no h265 sorry)
 
 ### Screenshots
 ![screenshot](screenshots/fourCams.png "4 Cameras")
