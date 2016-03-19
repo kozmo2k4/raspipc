@@ -63,8 +63,9 @@ angular.module('app')
 
 	// Change Cameras in FullScreen Buttons
 	$scope.changeCamera = function(camera) {
-		$scope.viewItems.id = camera
-		image = $scope.cameras[camera].jpeg
+		$scope.viewItems.id = camera + 1
+		console.log(camera)
+		var image = $scope.cameras[camera].jpeg
 		var ar = $scope.cameras[camera].ar
 		if (image) {
 			$scope.camStyle = "{ 'background-image': 'url('" + image + "')',  'background-size': " +
