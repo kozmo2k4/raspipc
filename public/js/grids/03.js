@@ -51,6 +51,13 @@ angular.module('app')
 		$scope.cameras = args
 	})
 
+	// String to append to preview images so they can be reloaded
+	if ($rootScope.dateCache) $scope.dateCache = $rootScope.dateCache
+	else {
+		$scope.dateCache = '?' + new Date().getTime();
+		$rootScope.dateCache = $scope.dateCache
+	}
+
 	// Translate Aspect Ratio Settings into CSS
 	$scope.getBackgroundSize = function(ar) {
 		if (ar === 'stretch') {

@@ -62,13 +62,16 @@
                <a class="btn btn-default" ng-class="{active: page == '16Cams'}"href="#/16"><i class="raspipc-icon icon-16"></i></a>
             </div>
             <div class="nav navbar-nav navbar-right btn-group" role="group">
-               <a class="btn btn-default" ng-class="{active: page == '1Cam'}"
+              <a class="btn btn-default" ng-class="{active: page == '2Cams'}" ng-click="reload()" uib-tooltip="{{ 'REFRESH' | translate }}" tooltip-append-to-body="true" tooltip-placement="bottom">
+                <i class="glyphicon glyphicon-refresh"></i>
+              </a>
+               <a class="btn btn-default" ng-class="{active: page == '1Cam'}" uib-tooltip="{{ 'DISPLAY' | translate }}" tooltip-append-to-body="true" tooltip-placement="bottom"
                 ng-click="applyView()" confirm="{{ 'DISPLAYCFRM' | translate }}" confirm-title="{{ 'DCONFIRMTITLE' | translate }}" confirm-ok="{{ 'YES' | translate }}"
                 ng-disabled="false">
-                 <i class="glyphicon glyphicon-blackboard"></i> {{ 'DISPLAY' | translate }}
+                 <i class="glyphicon glyphicon-blackboard"></i>
                </a>
-               <a class="btn btn-default" ng-class="{active: page == '2Cams'}" href="#/cameras">
-                 <i class="glyphicon glyphicon-facetime-video"></i> {{ 'SETTINGS' | translate }}
+               <a class="btn btn-default" ng-class="{active: page == '2Cams'}" href="#/cameras" uib-tooltip="{{ 'SETTINGS' | translate }}" tooltip-append-to-body="true" tooltip-placement="bottom">
+                 <i class="glyphicon glyphicon-facetime-video"></i>
                </a>
             </div>
       </div>

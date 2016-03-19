@@ -108,8 +108,13 @@
       }
     })
     // AJAX API Calls
-    .run(['$rootScope', '$http', '$translate', function($rootScope, $http,
-      $translate) {
+    .run(['$rootScope', '$http', '$translate', '$route', function($rootScope, $http,
+      $translate, $route) {
+
+      $rootScope.reload = function() {
+        $rootScope.dateCache = false
+        $route.reload()
+      }
 
       // Detect Language
       $rootScope.detectLanguage = function() {

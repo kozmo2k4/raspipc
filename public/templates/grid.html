@@ -3,7 +3,7 @@
     <div gridster="gridsterOpts">
         <ul>
             <li gridster-item="item" ng-repeat="item in viewItems">
-                <div class="cameraTitle" ng-style="{ 'background-image': 'url(' + cameras[item.id - 1].jpeg + ')',  'background-size': getBackgroundSize(cameras[item.id - 1].ar) }">
+                <div class="cameraTitle" ng-style="{ 'background-image': 'url(' + cameras[item.id - 1].jpeg  + dateCache + ')',  'background-size': getBackgroundSize(cameras[item.id - 1].ar) }">
                   <strong>#{{item.id}} {{cameras[item.id - 1].name}}</strong>
                 </div>
             </li>

@@ -44,6 +44,13 @@ angular.module('app')
 		}
 	}
 
+	// String to append to preview images so they can be reloaded
+	if ($rootScope.dateCache) $scope.dateCache = $rootScope.dateCache
+	else {
+		$scope.dateCache = '?' + new Date().getTime();
+		$rootScope.dateCache = $scope.dateCache
+	}
+
 	// Load Cameras from Database
 	$rootScope.getCameras();
 	$scope.$on('gotCameras', function(event, args) {

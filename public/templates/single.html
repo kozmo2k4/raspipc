@@ -23,7 +23,7 @@ border-radius: 4px;
     <div gridster="gridsterOpts">
         <ul>
           <li gridster-item="item" ng-repeat="item in viewItems">
-            <div class="cameraTitle" ng-style="{ 'background-image': 'url(' + cameras[viewItems.id - 1].jpeg + ')',  'background-size': getBackgroundSize(cameras[viewItems.id - 1].ar) }">
+            <div class="cameraTitle" ng-style="{ 'background-image': 'url(' + cameras[viewItems.id - 1].jpeg + dateCache +')',  'background-size': getBackgroundSize(cameras[viewItems.id - 1].ar) }">
                   <strong>#{{viewItems.id}} {{cameras[viewItems.id - 1].name}}</strong>
                 </div>
             </li>
