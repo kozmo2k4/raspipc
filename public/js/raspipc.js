@@ -173,7 +173,7 @@
 
       // Update Cameras to Database
       $rootScope.updateCameras = function(jdata) {
-        jdata = 'data=' + JSON.stringify(jdata)
+        jdata = 'data=' + encodeURIComponent(JSON.stringify(jdata))
         $http({ // Accessing the Angular $http Service to send data via REST Communication to Node Server.
           method: 'POST',
           url: '/api/updateCameras',

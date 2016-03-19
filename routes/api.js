@@ -157,7 +157,7 @@ router.post('/updateCameras', function(req, res) {
   res.header("Access-Control-Allow-Methods", "GET, POST");
   // The above 2 lines are required for Cross Domain Communication(Allowing the methods that come as Cross
   // Domain Request
-  //console.log(req.body);
+  console.log(req.body);
   if (req.body.data) {
     var jsonData = JSON.parse(req.body.data);
     Object.keys(jsonData).forEach(function(key) {

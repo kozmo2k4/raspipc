@@ -65,7 +65,7 @@ angular.module('app')
 			var formData = {
 				id: widget._id,
 			}
-			var jdata = 'data=' + JSON.stringify(formData);
+			var jdata = 'data=' + encodeURIComponent(JSON.stringify(formData));
 
 			$http({ // Accessing the Angular $http Service to send data via REST Communication to Node Server.
 				method: 'POST',
@@ -130,7 +130,7 @@ angular.module('app')
 			var formData = {
 				id: widget._id,
 			}
-			var jdata = 'data=' + JSON.stringify(formData);
+			var jdata = 'data=' + encodeURIComponent(JSON.stringify(formData));
 
 			$http({ // Accessing the Angular $http Service to send data via REST Communication to Node Server.
 				method: 'POST',
