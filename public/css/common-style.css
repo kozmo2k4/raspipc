@@ -89,15 +89,16 @@ input {
     float: right;
     padding: 10px;
 }
-.navbar-middle .btn {
-  margin-top: 7px;
+.navbar-middle .btn,.navbar-right .btn  {
+  font-size: 18px;
 }
 .navbar-right {
-  margin-top: 7px;
   padding-right: 20px;
 }
-
-.btn-default {
+.navbar-middle, .navbar-right {
+  margin-top: 5px;
+}
+.btn-black {
   color: #999999;
   background-color: #000000;
   border-color: #999999;
