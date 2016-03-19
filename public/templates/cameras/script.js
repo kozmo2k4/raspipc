@@ -1,8 +1,9 @@
 angular.module('app')
 
 
-.controller('CameraCtl', ['$scope', '$http', '$rootScope', '$confirm',
-	function($scope, $http, $rootScope) {
+.controller('CameraCtl', ['$scope', '$http', '$rootScope', '$confirm', '$translate',
+
+	function($scope, $http, $rootScope, $confirm, $translate) {
 		$scope.gridsterOptions = {
 			margins: [20, 20],
 			columns: 1,
@@ -20,6 +21,10 @@ angular.module('app')
 				enabled: true
 			}
 		};
+
+		// Default Query Button Class
+		$scope.queryBtn = 'btn btn-info'
+		$scope.onvifStatus = $translate.instant('QUERYCAM')
 
 		// Load Cameras from Database
 		$rootScope.getCameras();
@@ -72,13 +77,10 @@ angular.module('app')
 			}).
 			success(function(response) {
 				console.log("Camera Deleted"); // Getting Success Response in Callback
-				$scope.codeStatus = response.data;
 				$scope.gridsterOptions.maxRows = $scope.gridsterOptions.maxRows - 1
 			}).
 			error(function(response) {
-				console.log("error"); // Getting Error Response in Callback
-				$scope.codeStatus = response || "Request failed";
-				console.log($scope.codeStatus);
+				console.log("Camera Delete Failed"); // Getting Error Response in Callback
 			});
 			$scope.cameras.splice($scope.cameras.indexOf(widget),
 				1);
@@ -102,8 +104,8 @@ angular.module('app')
 ])
 
 .controller('WidgetSettingsCtrl', ['$scope', '$timeout', '$rootScope',
-	'$uibModalInstance', 'widget', '$http',
-	function($scope, $timeout, $rootScope, $modalInstance, widget, $http) {
+	'$uibModalInstance', 'widget', '$http', '$translate',
+	function($scope, $timeout, $rootScope, $modalInstance, widget, $http, $translate) {
 		$scope.widget = widget;
 
 		$scope.form = {
@@ -140,27 +142,74 @@ angular.module('app')
 			}).
 			success(function(response) {
 				console.log("Camera Deleted"); // Getting Success Response in Callback
-				$scope.codeStatus = response.data;
 				$scope.gridsterOptions.maxRows = $scope.gridsterOptions.maxRows - 1
 			}).
 			error(function(response) {
-				console.log("error"); // Getting Error Response in Callback
-				$scope.codeStatus = response || "Request failed";
-				console.log($scope.codeStatus);
+				console.log("Camera Delete Failed"); // Getting Error Response in Callback
 			});
 			$scope.cameras.splice($scope.cameras.indexOf(widget),
 				1);
 			$modalInstance.close();
 		};
 
+		// OnVif Query
+		$scope.onvifQuery = function() {
+			$scope.queryBtn = 'btn btn-warning'
+			$scope.onvifStatus = $translate.instant('WORKING')
+				//angular.extend(widget, $scope.form);
+			$http({ // Accessing the Angular $http Service to send data via REST Communication to Node Server.
+				method: 'POST',
+				url: '/api/onvifStreamQuery',
+				data: 'host=' + $scope.form.host + '&user=' + $scope.form.user + '&pass=' + $scope.form.pass,
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded'
+				},
+			}).
+			success(function(response) {
+				console.log(response); // Getting Success Response in Callback
+				if (response !== 'failed') {
+					$scope.form.feed = response
+					$scope.queryBtn = 'btn btn-success'
+					$scope.onvifStatus = $translate.instant('SUCCESS')
+				} else {
+					$scope.queryBtn = 'btn btn-danger'
+					$scope.onvifStatus = $translate.instant('FAILED')
+				}
+				//$scope.codeStatus = response.data;
+			}).
+			error(function(response) {
+				console.log(response); // Getting Error Response in Callback
+				$scope.queryBtn = 'btn btn-danger'
+				$scope.onvifStatus = $translate.instant('FAILED')
+					//$scope.codeStatus = response || "Request failed";
+					//console.log($scope.codeStatus);
+			});
+			// Onvif Snapshot URL
+			$http({ // Accessing the Angular $http Service to send data via REST Communication to Node Server.
+				method: 'POST',
+				url: '/api/onvifSnapshotQuery',
+				data: 'host=' + $scope.form.host + '&user=' + $scope.form.user + '&pass=' + $scope.form.pass,
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded'
+				},
+			}).
+			success(function(response) {
+				console.log(response); // Getting Success Response in Callback
+				$scope.form.jpeg = response
+
+			}).
+			error(function(response) {
+				console.log(response); // Getting Error Response in Callback
+				//$scope.codeStatus = response || "Request failed";
+				//console.log($scope.codeStatus);
+			});
+		}
+
 		// Save Camera Settings
 		$scope.submit = function() {
 			angular.extend(widget, $scope.form);
 			var formData = {
 				name: widget.name,
-				host: widget.host,
-				user: widget.user,
-				pass: widget.pass,
 				feed: widget.feed,
 				jpeg: widget.jpeg,
 				audio: widget.audio,
@@ -169,9 +218,8 @@ angular.module('app')
 				col: widget.col,
 				id: widget._id,
 			}
-			console.log(widget.row)
-			var jdata = 'data=' + JSON.stringify(formData);
-
+			var jdata = 'data=' + encodeURIComponent(JSON.stringify(formData));
+			console.log(jdata)
 			$http({ // Accessing the Angular $http Service to send data via REST Communication to Node Server.
 				method: 'POST',
 				url: '/api/addCamera',
@@ -182,16 +230,13 @@ angular.module('app')
 			}).
 			success(function(response) {
 				console.log("Camera Saved"); // Getting Success Response in Callback
-				$scope.codeStatus = response.data;
+				$modalInstance.close(widget);
 			}).
 			error(function(response) {
-				console.log("error"); // Getting Error Response in Callback
-				$scope.codeStatus = response || "Request failed";
-				console.log($scope.codeStatus);
+				console.log("Camera Not Saved!");
+				console.log(response)
 			});
-			$modalInstance.close(widget);
 		};
-
 	}
 ])
 

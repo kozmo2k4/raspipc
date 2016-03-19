@@ -41,23 +41,51 @@ router.get('/getCodecSupport', function(req, res) {
   res.sendFile('/tmp/codec-support.json');
 });
 
-// ONVIF Query
-router.post('/onvifQuery', function(req, res) {
+// ONVIF Stream Query
+router.post('/onvifStreamQuery', function(req, res) {
+  console.log('OnVif Query: ' + req.body.host)
   res.header("Access-Control-Allow-Origin", "http://localhost");
   res.header("Access-Control-Allow-Methods", "GET, POST");
-  console.log(req.body.host);
-  console.log(req.body.user);
-  console.log(req.body.pass);
   new Cam({
     hostname: req.body.host,
     username: req.body.user,
     password: req.body.pass
   }, function(err) {
-    this.getStreamUri({
-      protocol: 'RTSP'
-    }, function(err, stream) {
-      res.end('stream')
-    });
+    if (err) res.end('failed')
+    else {
+      this.getStreamUri({
+        protocol: 'RTSP'
+      }, function(err, stream) {
+        if (stream.uri) {
+          var stream = stream.uri.slice(0, 7) + req.body.user + ':' + req.body.pass + '@' + stream.uri.slice(
+            7)
+          res.end(stream)
+        } else res.end('no stream returned')
+      });
+    }
+  });
+});
+
+// ONVIF Snapshot Query
+router.post('/onvifSnapshotQuery', function(req, res) {
+  res.header("Access-Control-Allow-Origin", "http://localhost");
+  res.header("Access-Control-Allow-Methods", "GET, POST");
+  var defaultImg = '/images/camera.png';
+  new Cam({
+    hostname: req.body.host,
+    username: req.body.user,
+    password: req.body.pass
+  }, function(err) {
+    if (err) res.end(defaultImg)
+    else {
+      this.getSnapshotUri({}, function(err, stream) {
+        if (stream.uri) {
+          var stream = stream.uri.slice(0, 7) + req.body.user + ':' + req.body.pass + '@' + stream.uri.slice(
+            7)
+          res.end(stream)
+        } else res.end(defaultImg)
+      });
+    }
   });
 });
 
@@ -98,27 +126,29 @@ router.post('/addCamera', function(req, res) {
   // Domain Request
   console.log(req.body);
   console.log(req.body.data);
-  var jsonData = JSON.parse(req.body.data);
-  db.cameras.update({
-      _id: jsonData.id
-    }, {
-      name: jsonData.name,
-      host: jsonData.host,
-      user: jsonData.user,
-      pass: jsonData.pass,
-      feed: jsonData.feed,
-      jpeg: jsonData.jpeg,
-      audio: jsonData.audio,
-      ar: jsonData.ar,
-      row: jsonData.row,
-      col: jsonData.col,
-    }, {
-      upsert: true,
-    },
-    function(err, numReplaced, upsert) { // Query in NeDB via NeDB Module
-      if (err) res.end("Camera not saved");
-      else res.end("Camera saved");
-    });
+  if (req.body.data) {
+    var jsonData = JSON.parse(req.body.data)
+    db.cameras.update({
+        _id: jsonData.id
+      }, {
+        name: jsonData.name,
+        host: jsonData.host,
+        user: jsonData.user,
+        pass: jsonData.pass,
+        feed: jsonData.feed,
+        jpeg: jsonData.jpeg,
+        audio: jsonData.audio,
+        ar: jsonData.ar,
+        row: jsonData.row,
+        col: jsonData.col,
+      }, {
+        upsert: true,
+      },
+      function(err, numReplaced, upsert) { // Query in NeDB via NeDB Module
+        if (err) res.end("Camera not saved");
+        else res.end("Camera saved");
+      });
+  }
 });
 
 // Update Cameras
@@ -130,7 +160,6 @@ router.post('/updateCameras', function(req, res) {
   //console.log(req.body);
   if (req.body.data) {
     var jsonData = JSON.parse(req.body.data);
-    console.log(jsonData)
     Object.keys(jsonData).forEach(function(key) {
       db.cameras.update({
           _id: jsonData[key]._id
