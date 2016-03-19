@@ -120,7 +120,7 @@
       $rootScope.detectLanguage = function() {
         var url = '/api/detectLanguage';
         $http.get(url).success(function(data) {
-          console.log('language detected = ' + data)
+          //console.log('language detected = ' + data)
           $translate.use(data)
             //$rootScope.$broadcast('languageDetected', data)
         });
@@ -138,7 +138,6 @@
         }).
         success(function(response) {
           if (response[0]) {
-            console.log("Views restored from database");
             $rootScope.$broadcast('viewBroadcast', JSON.parse(
               response[0].data))
           } else {
@@ -159,7 +158,7 @@
           },
         }).
         success(function(response) {
-          console.log("View Updated"); // Getting Success Response in Callback
+          //console.log("View Updated"); // Getting Success Response in Callback
         }).
         error(function(response) {
           console.log("View Update Failed"); // Getting Error Response in Callback
@@ -188,7 +187,7 @@
           },
         }).
         success(function(response) {
-          console.log("Cameras Updated"); // Getting Success Response in Callback
+          //console.log("Cameras Updated"); // Getting Success Response in Callback
         }).
         error(function(response) {
           console.log("Camera Update Failed"); // Getting Error Response in Callback

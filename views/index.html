@@ -7,6 +7,7 @@
     <meta name="description" content="Rasperry Pi IPCamera Display" />
     <meta name="author" content="Ryan Hunt - admin@nayr.net" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- raspIPC.tv Copyright 2016 Ryan Hunt - License: GPL 3.0 -->
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/angular-gridster.min.css" />
     <link rel="stylesheet" href="css/angular-tooltips.min.css" />
@@ -46,31 +47,31 @@
                 <a class="navbar-brand hidden-sm hidden-xs" href="#/about"><img src="images/rpi-icon.png" height="48px" width="48px">raspIPC.tv</a>
             </div>
             <div class="navbar-middle btn-group" role="group">
-               <a class="btn btn-default" ng-class="{active: page == '1Cam'}" href="#/1"><i class="raspipc-icon icon-1"></i></a>
-               <a class="btn btn-default" ng-class="{active: page == '2Cams'}" href="#/2"><i class="raspipc-icon icon-2"></i></a>
-               <a class="btn btn-default" ng-class="{active: page == '2SCams'}" href="#/2S"><i class="raspipc-icon icon-2s"></i></a>
-               <a class="btn btn-default" ng-class="{active: page == '3Cams'}" href="#/3"><i class="raspipc-icon icon-3"></i></a>
-               <a class="btn btn-default" ng-class="{active: page == '4Cams'}" href="#/4"><i class="raspipc-icon icon-4"></i></a>
-               <a class="btn btn-default" ng-class="{active: page == '4RCams'}" href="#/4R"><i class="raspipc-icon icon-4r"></i></a>
-               <a class="btn btn-default" ng-class="{active: page == '5Cams'}" href="#/5"><i class="raspipc-icon icon-5"></i></a>
-               <a class="btn btn-default" ng-class="{active: page == '6Cams'}" href="#/6"><i class="raspipc-icon icon-6"></i></a>
-               <a class="btn btn-default" ng-class="{active: page == '7Cams'}" href="#/7"><i class="raspipc-icon icon-7"></i></a>
-               <a class="btn btn-default" ng-class="{active: page == '8Cams'}" href="#/8"><i class="raspipc-icon icon-8"></i></a>
-               <a class="btn btn-default" ng-class="{active: page == '9Cams'}" href="#/9"><i class="raspipc-icon icon-9"></i></a>
-               <a class="btn btn-default" ng-class="{active: page == '10Cams'}" href="#/10"><i class="raspipc-icon icon-10"></i></a>
-               <a class="btn btn-default" ng-class="{active: page == '13Cams'}" href="#/13"><i class="raspipc-icon icon-13"></i></a>
-               <a class="btn btn-default" ng-class="{active: page == '16Cams'}"href="#/16"><i class="raspipc-icon icon-16"></i></a>
+               <a class="btn btn-default" href="#/1">   <i class="raspipc-icon icon-1"></i></a>
+               <a class="btn btn-default" href="#/2">   <i class="raspipc-icon icon-2"></i></a>
+               <a class="btn btn-default" href="#/2S">  <i class="raspipc-icon icon-2s"></i></a>
+               <a class="btn btn-default" href="#/3">   <i class="raspipc-icon icon-3"></i></a>
+               <a class="btn btn-default" href="#/4">   <i class="raspipc-icon icon-4"></i></a>
+               <a class="btn btn-default" href="#/4R">  <i class="raspipc-icon icon-4r"></i></a>
+               <a class="btn btn-default" href="#/5">   <i class="raspipc-icon icon-5"></i></a>
+               <a class="btn btn-default" href="#/6">   <i class="raspipc-icon icon-6"></i></a>
+               <a class="btn btn-default" href="#/7">   <i class="raspipc-icon icon-7"></i></a>
+               <a class="btn btn-default" href="#/8">   <i class="raspipc-icon icon-8"></i></a>
+               <a class="btn btn-default" href="#/9">   <i class="raspipc-icon icon-9"></i></a>
+               <a class="btn btn-default" href="#/10">  <i class="raspipc-icon icon-10"></i></a>
+               <a class="btn btn-default" href="#/13">  <i class="raspipc-icon icon-13"></i></a>
+               <a class="btn btn-default" href="#/16">  <i class="raspipc-icon icon-16"></i></a>
             </div>
             <div class="nav navbar-nav navbar-right btn-group" role="group">
-              <a class="btn btn-default" ng-class="{active: page == '2Cams'}" ng-click="reload()" uib-tooltip="{{ 'REFRESH' | translate }}" tooltip-append-to-body="true" tooltip-placement="bottom">
+              <a class="btn btn-default" ng-click="reload()" uib-tooltip="{{ 'REFRESH' | translate }}" tooltip-append-to-body="true" tooltip-placement="bottom">
                 <i class="glyphicon glyphicon-refresh"></i>
               </a>
-               <a class="btn btn-default" ng-class="{active: page == '1Cam'}" uib-tooltip="{{ 'DISPLAY' | translate }}" tooltip-append-to-body="true" tooltip-placement="bottom"
+               <a class="btn btn-default" uib-tooltip="{{ 'APPLYLAYOUT' | translate }}" tooltip-append-to-body="true" tooltip-placement="bottom"
                 ng-click="applyView()" confirm="{{ 'DISPLAYCFRM' | translate }}" confirm-title="{{ 'DCONFIRMTITLE' | translate }}" confirm-ok="{{ 'YES' | translate }}"
-                ng-disabled="false">
+                ng-hide="page == 'AboutCtrl'">
                  <i class="glyphicon glyphicon-blackboard"></i>
                </a>
-               <a class="btn btn-default" ng-class="{active: page == '2Cams'}" href="#/cameras" uib-tooltip="{{ 'SETTINGS' | translate }}" tooltip-append-to-body="true" tooltip-placement="bottom">
+               <a class="btn btn-default" ng-class="{active: page == 'CameraCtl'}" href="#/cameras" uib-tooltip="{{ 'CAMERAS' | translate }}" tooltip-append-to-body="true" tooltip-placement="bottom">
                  <i class="glyphicon glyphicon-facetime-video"></i>
                </a>
             </div>

@@ -1,4 +1,3 @@
-# RASPberry powered IPCamera to TV
 ## About
 Pronounced: Ras - Pip - See - Tee - Vee
 
@@ -30,7 +29,7 @@ can securely access your cameras remotely without exposing them to the dangers o
 * Letterbox/Stretch/Fill Aspect Ratios
 * WebUI for easy setup
   * Drag and drop arrangement
-  * ONViF Detection
+  * OnVif Stream Detection
   * Preview Image
 * Stream Watchdog
   * Restarts dropped streams
@@ -40,14 +39,15 @@ can securely access your cameras remotely without exposing them to the dangers o
 ### Requirements:
 * Camera feeds in a compatible encoding via RSTP or HTTP.
   * Note that MPEG2 Decoding requires the purchase of an external license.
-  * Test your cameras by trying to play a stream in VideoLAN Client (VLC Player).
+  * Test your cameras by trying to play a stream in [VideoLAN Client](http://www.videolan.org/).
 * Raspberry Pi2 or newer.
 * MicroSD Memory Card - 8GB - 64GB.
+* SD Card Writer for installing.
 * Wired Ethernet for best results, cams will drop out all the time on WiFi.
 * TV/Monitor connected via HDMI.
   * FYI: Aspect Ratios will be identical to your display.
   * DVI Adapters work fine.
-  * Displays can be powered on/off with a GPIO port.
+  * Displays can be powered on/off with a GPIO port and a relay.
 
 ### Suggestions:
 * Monitors with wide viewing angles are best for dedicated displays.

@@ -1,5 +1,7 @@
 {
   "DISPLAY": "Display",
+  "APPLYLAYOUT": "Apply Layout",
+  "CAMERAS": "Cameras",
   "DISPLAYCFRM": "Do you want to display the current layout?",
   "DCONFIRMTITLE": "Update Display",
   "YES": "Yes",

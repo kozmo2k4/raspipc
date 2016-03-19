@@ -22,6 +22,8 @@ angular.module('app')
 			}
 		};
 
+		$scope.nonLayoutPage = true;
+
 		// Default Query Button Class
 		$scope.queryBtn = 'btn btn-info'
 		$scope.onvifStatus = $translate.instant('QUERYCAM')
