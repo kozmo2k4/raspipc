@@ -6,10 +6,19 @@ Goal: Display security cameras on a TV or dedicated Monitor; all managed remotel
 
 > Under Very Heavy Development - NON FUNCTIONAL
 
-raspIPC.tv is a fancy web interface for omxplayer, the Raspberry Pi command line video player.
-Loaded up on a Raspberry Pi, a $35 credit card sized computer, It allows you to quickly and easily get your security cameras video feeds displayed on your Television with many great layouts that you can customize.
+[raspIPC.tv](http://raspIPC.tv) is a fancy web interface for [omxplayer](https://github.com/popcornmix/omxplayer), the Raspberry Pi command line video player.
+Loaded up on a Raspberry Pi, a $35 credit card sized computer, It allows you to quickly and easily get your security
+cameras video feeds displayed on your Television with many great layouts that you can customize.
 
-In CCTV lingo it is an IP-Feed to HDMI adapter with a nice browser interface.
+In CCTV lingo it is an Network Camera to HDMI adapter with a modern browser interface.
+With ready to go SD card images (think firmware) you don't need to be a linux expert, it is setup so you will not need
+to use the command line just like your linux powered security cameras.
+
+![Raspberry Pi3](https://raw.githubusercontent.com/nayrnet/raspipc/master/public/images/rpi3-board.png)
+
+Should you be inclined to dig into the [Raspbian OS](https://www.raspbian.org) you'll find that there are plenty of avilable resources left for doing
+other tasks, such as running a local VPN Server. You can find guides online for getting them going and once running you
+can securely access your cameras remotely without exposing them to the dangers of the internet.
 
 ### Online Demo:
 * Availability limited, running off a real pi so please be nice: [demo.raspipc.tv](http://demo.raspipc.tv)
