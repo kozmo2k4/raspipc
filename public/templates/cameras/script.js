@@ -195,7 +195,7 @@ angular.module('app')
 			}).
 			success(function(response) {
 				console.log(response); // Getting Success Response in Callback
-				if (response !== '/images/camera.png') || ($scope.form.jpeg === '') $scope.form.jpeg = response
+				if ((response !== '/images/camera.png') || ($scope.form.jpeg === '')) $scope.form.jpeg = response
 			}).
 			error(function(response) {
 				console.log(response); // Getting Error Response in Callback
