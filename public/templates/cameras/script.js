@@ -92,8 +92,8 @@ angular.module('app')
 		$scope.openSettings = function(widget) {
 			$modal.open({
 				scope: $scope,
-				templateUrl: 'templates/cameras/widget_settings.html',
-				controller: 'WidgetSettingsCtrl',
+				templateUrl: 'templates/cameras/settings.html',
+				controller: 'CameraSettingsCtrl',
 				resolve: {
 					widget: function() {
 						return widget;
@@ -105,7 +105,7 @@ angular.module('app')
 	}
 ])
 
-.controller('WidgetSettingsCtrl', ['$scope', '$timeout', '$rootScope',
+.controller('CameraSettingsCtrl', ['$scope', '$timeout', '$rootScope',
 	'$uibModalInstance', 'widget', '$http', '$translate',
 	function($scope, $timeout, $rootScope, $modalInstance, widget, $http, $translate) {
 		$scope.widget = widget;

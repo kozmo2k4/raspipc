@@ -43,5 +43,17 @@
   "AUTHORED": "Geschrieben von",
   "THANKS": "Vielen Dank an",
   "LICENSE": "Lizenz",
+  "PIDISCLAIMER": "Dieses Projekt ist nicht der Raspberry Pi Foundation zugehörig.",
+  "DISPLAY": "Display",
+  "APPLYLAYOUT": "Ansicht anwenden",
+  "CAMERAS": "Kamera",
+  "DISPLAYCFRM": "Möchten Sie die aktuelle Ansicht anwenden?",
+  "DCONFIRMTITLE": "Display aktualisieren",
+  "YES": "Ja",
+  "NO": "Nein",
+  "SUCCESS": "Erfolg",
+  "FAILED": "Fehlgeschlagen!",
+  "REFRESH": "Seite neu laden",
+  "WORKING": "Bitte warten",
   "TMDISCLAIMER": "Alle erwähnten Produkt- und Firmennamen sind Marken bzw. registrierte Marken ® der jeweiligen Eigentümer."
 }

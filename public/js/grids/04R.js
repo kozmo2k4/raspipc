@@ -1,7 +1,7 @@
 angular.module('app')
 
 // Begin View Template
-.controller('4RCams', ['$scope', '$http', '$rootScope', function($scope, $http,
+.controller('cams4r', ['$scope', '$http', '$rootScope', function($scope, $http,
 	$rootScope) {
 	// Define Default Grid Layout Here
 	var defaultView = [{

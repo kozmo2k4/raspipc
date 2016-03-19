@@ -44,7 +44,7 @@ if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('error.html', {
-      title: 'RasPipC',
+      title: 'raspIPC.tv',
       message: err.message,
       error: err
     });
@@ -56,7 +56,7 @@ if (app.get('env') === 'development') {
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error.html', {
-    title: 'RasPipC',
+    title: 'raspIPC.tv',
     message: err.message,
     error: {}
   });

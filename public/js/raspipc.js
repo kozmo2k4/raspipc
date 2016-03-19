@@ -10,59 +10,59 @@
         $routeProvider
           .when('/1', {
             templateUrl: 'templates/single.html',
-            controller: '1Cam'
+            controller: 'cams1'
           })
           .when('/2', {
             templateUrl: 'templates/grid.html',
-            controller: '2Cams'
+            controller: 'cams2'
           })
-          .when('/2S', {
+          .when('/2s', {
             templateUrl: 'templates/grid.html',
-            controller: '2SCams'
+            controller: 'cams2s'
           })
           .when('/3', {
             templateUrl: 'templates/grid.html',
-            controller: '3Cams'
+            controller: 'cams3'
           })
           .when('/4', {
             templateUrl: 'templates/grid.html',
-            controller: '4Cams'
+            controller: 'cams4'
           })
-          .when('/4R', {
+          .when('/4r', {
             templateUrl: 'templates/grid.html',
-            controller: '4RCams'
+            controller: 'cams4r'
           })
           .when('/5', {
             templateUrl: 'templates/grid.html',
-            controller: '5Cams'
+            controller: 'cams5'
           })
           .when('/6', {
             templateUrl: 'templates/grid.html',
-            controller: '6Cams'
+            controller: 'cams6'
           })
           .when('/7', {
             templateUrl: 'templates/grid.html',
-            controller: '7Cams'
+            controller: 'cams7'
           })
           .when('/8', {
             templateUrl: 'templates/grid.html',
-            controller: '8Cams'
+            controller: 'cams8'
           })
           .when('/9', {
             templateUrl: 'templates/grid.html',
-            controller: '9Cams'
+            controller: 'cams9'
           })
           .when('/10', {
             templateUrl: 'templates/grid.html',
-            controller: '10Cams'
+            controller: 'cams10'
           })
           .when('/13', {
             templateUrl: 'templates/grid.html',
-            controller: '13Cams'
+            controller: 'cams13'
           })
           .when('/16', {
             templateUrl: 'templates/grid.html',
-            controller: '16Cams'
+            controller: 'cams16'
           })
           .when('/cameras', {
             templateUrl: 'templates/cameras/view.html',
@@ -77,36 +77,88 @@
           });
       }
     ])
-    .controller('RootCtrl', ['$scope', '$http', '$translate', '$rootScope',
+    .controller('RootCtrl', ['$scope', '$http', '$translate', '$rootScope', '$location',
       function($scope,
         $http, $translate, $rootScope) {
         $scope.$on('$locationChangeStart', function(e, next, current) {
           $scope.page = next.split('/').splice(-1);
           $scope.styleUrl = '/style.css'
           $rootScope.detectLanguage()
+          $scope.screens = {
+            cams1: {
+              name: "Full Screen",
+              icon: "icon-1",
+              href: "1"
+            },
+            cams2: {
+              name: "Split Screen Horiz",
+              icon: "icon-2",
+              href: "2"
+            },
+            cams2s: {
+              name: "Split Screen Vert",
+              icon: "icon-2s",
+              href: "2s"
+            },
+            cams3: {
+              name: "Three Cam Tee",
+              icon: "icon-3",
+              href: "3"
+            },
+            cams4: {
+              name: "2x2 Four Cam Grid",
+              ctrl: "4Cams",
+              icon: "icon-4",
+              href: "4"
+            },
+            cams4r: {
+              name: "Four Cam Ribbon",
+              icon: "icon-4r",
+              href: "4r"
+            },
+            cams5: {
+              name: "Five Cam Ribbon",
+              icon: "icon-5",
+              href: "5",
+            },
+            cams6: {
+              name: "Six Cam Grid",
+              icon: "icon-6",
+              href: "6",
+            },
+            cams7: {
+              name: "Seven Cam Grid",
+              icon: "icon-7",
+              href: "7",
+            },
+            cams8: {
+              name: "Eight Cam Grid",
+              icon: "icon-7",
+            },
+            cams9: {
+              name: "3x3 Nine Cam Grid",
+              icon: "icon-9",
+              href: "9",
+            },
+            cams10: {
+              name: "Ten Cam Grid",
+              icon: "icon-10",
+              href: "10",
+            },
+            cams13: {
+              name: "Thirteen Cam Grid",
+              icon: "icon-13",
+              href: "13",
+            },
+            cams16: {
+              name: "4x4 16 Cam Grid",
+              icon: "icon-16",
+              href: "16",
+            },
+          }
         });
       }
     ])
-    // Calculate Camera Aspect Ratios for Grid background
-    .directive('backImg', function() {
-      return function(scope, element, attrs) {
-        attrs.$observe('backImg', function(value) {
-          if (attrs.ar === 'fill') {
-            element.css({
-              'background-size': 'cover !important'
-            })
-          } else if (attrs.ar === 'stretch') {
-            element.css({
-              'background-size': '100% 100% !important'
-            })
-          } else if (attrs.ar === 'letterbox') {
-            element.css({
-              'background-size': 'contain !important'
-            })
-          }
-        })
-      }
-    })
     // AJAX API Calls
     .run(['$rootScope', '$http', '$translate', '$route', function($rootScope, $http,
       $translate, $route) {

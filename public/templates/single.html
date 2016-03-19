@@ -31,9 +31,9 @@ border-radius: 4px;
     </div>
 </div><br/>
 <div class="nav" width="100%" style="text-align:center; color: white;">
-  <div class="btn-group" role="group">
-    <md-button class="btn btn-black" ng-repeat="camera in cameras" ng-click="changeCamera(camera.row)" aria-label="{{camera.name}}" tooltip-append-to-body="true" uib-tooltip="{{camera.name}}">
+  <div class="btn-group navbar" role="group">
+    <a class="btn btn-black" ng-repeat="camera in cameras" ng-click="changeCamera(camera.row)" aria-label="{{camera.name}}" tooltip-append-to-body="true" uib-tooltip="{{camera.name}}">
       {{camera.row + 1}}
-    </md-button>
+    </a>
   </div>
 </div>

@@ -1,7 +1,7 @@
 angular.module('app')
 
 // Begin View Template
-.controller('7Cams', ['$scope', '$http', '$rootScope', function($scope, $http,
+.controller('cams7', ['$scope', '$http', '$rootScope', function($scope, $http,
 	$rootScope) {
 	// Define Default Grid Layout Here
 	var defaultView = [{

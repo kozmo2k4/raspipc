@@ -1,5 +1,5 @@
 #!/bin/bash
-# RasPipC - Codec Support
+# rasIPC.tv - Codec Support
 ## We cant scan for codecs once the video streams are going, so we do this on every boot before the streams have started.
 
 FILE='/tmp/codec-support.json'
