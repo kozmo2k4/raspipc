@@ -5,12 +5,14 @@ angular.module('app')
 	function($scope, $http, $rootScope) {
 		// Get cpuinfo
 		$scope.getCpuInfo = function() {
-				var url = '/api/getCpuInfo';
-				$http.get(url).success(function(data) {
-					$scope.cpuInfo = data;
-				});
-			}
-			// Get Suported HW Decoders
+			var url = '/api/getCpuInfo';
+			$http.get(url).success(function(data) {
+				$scope.cpuInfo = data;
+			});
+		}
+		clearInterval($rootScope.refreshTimer);
+
+		// Get Suported HW Decoders
 		$scope.getCodecSupport = function() {
 			var url = '/api/getCodecSupport';
 			$http.get(url).success(function(data) {

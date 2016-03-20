@@ -53,17 +53,33 @@
               </a>
             </div>
             <div class="nav navbar-nav navbar-right btn-group" role="group">
-              <a class="btn-black btn" ng-click="reload()" aria-label="{{ 'REFRESH' | translate }}" uib-tooltip="{{ 'REFRESH' | translate }}" tooltip-append-to-body="true" tooltip-placement="bottom">
-                <i class="glyphicon glyphicon-refresh"></i>
-              </a>
-               <a class="btn-black btn" aria-label="{{ 'APPLYLAYOUT' | translate }}" uib-tooltip="{{ 'APPLYLAYOUT' | translate }}" tooltip-append-to-body="true" tooltip-placement="bottom"
+              <div class="btn-group" uib-dropdown>
+                <button type="button" class="btn btn-black" style="padding: 6px;" uib-dropdown-toggle>
+                  <span class="caret"></span>
+                  <span class="sr-only">Split button!</span>
+                </button>
+                <button id="single-button" type="button" class="btn btn-black" ng-disabled="disabled" ng-click="reload()" aria-label="{{ 'REFRESH' | translate }}" uib-tooltip="{{ 'REFRESH' | translate }}" tooltip-append-to-body="true" tooltip-placement="bottom">
+                   <i class="glyphicon glyphicon-refresh"></i>
+                </button>
+                <ul uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                  <li role="menuitem"><a ng-click="refreshTimer(5)"><i ng-if="timer === 5" class="glyphicon glyphicon-triangle-right"></i> {{ 'REFRESHRATE' | translate }}: 5 {{ 'SEC' | translate }}</a></li>
+                  <li role="menuitem"><a ng-click="refreshTimer(10)"><i ng-if="timer === 10" class="glyphicon glyphicon-triangle-right"></i> {{ 'REFRESHRATE' | translate }}: 10 {{ 'SEC' | translate }}</a></li>
+                  <li role="menuitem"><a ng-click="refreshTimer(30)"><i ng-if="timer === 30" class="glyphicon glyphicon-triangle-right"></i> {{ 'REFRESHRATE' | translate }}: 30 {{ 'SEC' | translate }}</a></li>
+                  <li role="menuitem"><a ng-click="refreshTimer(60)"><i ng-if="timer === 60" class="glyphicon glyphicon-triangle-right"></i> {{ 'REFRESHRATE' | translate }}: 1 {{ 'MIN' | translate }}</a></li>
+                  <li role="menuitem"><a ng-click="refreshTimer(300)"><i ng-if="timer === 300" class="glyphicon glyphicon-triangle-right"></i> {{ 'REFRESHRATE' | translate }}: 5 {{ 'MIN' | translate }}</a></li>
+                  <li class="divider"></li>
+                  <li role="menuitem"><a ng-click="refreshTimer(0)"><i ng-if="timer < 1" class="glyphicon glyphicon-triangle-right"></i> {{ 'DISABLEREFRESH' | translate }}</a></li>
+                </ul>
+              </div>
+
+                <ng-button class="btn-black btn" aria-label="{{ 'APPLYLAYOUT' | translate }}" uib-tooltip="{{ 'APPLYLAYOUT' | translate }}" tooltip-append-to-body="true" tooltip-placement="bottom"
                 ng-click="applyView()" confirm="{{ 'DISPLAYCFRM' | translate }}" confirm-title="{{ 'DCONFIRMTITLE' | translate }}" confirm-ok="{{ 'YES' | translate }}"
-                ng-hide="page == 'AboutCtrl'">
-                 <i class="glyphicon glyphicon-blackboard"></i>
-               </a>
-               <a class="btn-black btn" href="#/cameras" aria-label="{{ 'CAMERAS' | translate }}" uib-tooltip="{{ 'CAMERAS' | translate }}" tooltip-append-to-body="true" tooltip-placement="bottom">
-                 <i class="glyphicon glyphicon-facetime-video"></i>
-               </a>
+                ng-hide="page == AboutCtrl">
+                  <i class="glyphicon glyphicon-blackboard"></i>
+                </ng-button>
+                <a class="btn-black btn" href="#/cameras" aria-label="{{ 'CAMERAS' | translate }}" uib-tooltip="{{ 'CAMERAS' | translate }}" tooltip-append-to-body="true" tooltip-placement="bottom">
+                  <i class="glyphicon glyphicon-facetime-video"></i>
+                </a>
             </div>
       </div>
         <div class="container" ng-view></div>

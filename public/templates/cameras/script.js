@@ -23,6 +23,7 @@ angular.module('app')
 		};
 
 		$scope.nonLayoutPage = true;
+		clearInterval($rootScope.refreshTimer);
 
 		// Default Query Button Class
 		$scope.queryBtn = 'btn btn-info'

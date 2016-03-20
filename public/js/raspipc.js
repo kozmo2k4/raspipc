@@ -84,6 +84,12 @@
           $scope.page = next.split('/').splice(-1);
           $scope.styleUrl = '/style.css'
           $rootScope.detectLanguage()
+          $scope.timer = 0
+          $scope.refreshTimer = function(time) {
+            clearInterval($rootScope.refreshTimer)
+            $scope.timer = time;
+            if (time) $rootScope.refreshTimer = setInterval($rootScope.reload, time * 1000)
+          }
           $scope.screens = {
             cams1: {
               name: "Full Screen",
