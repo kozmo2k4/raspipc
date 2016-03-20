@@ -2,8 +2,6 @@
 ![Raspberry Pi](https://img.shields.io/badge/raspberry-pi-red.svg)
 [![GitHub release](https://img.shields.io/github/release/qubyte/rubidium.svg)]()
 [![GPL-3.0](https://img.shields.io/badge/license-GPL-blue.svg)]()
-[![npm](https://img.shields.io/npm/v/npm.svg)]()
-[![node](https://img.shields.io/node/v/gh-badges.svg)]()
 
 Pronounced: Ras - Pip - See - Tee - Vee
 
