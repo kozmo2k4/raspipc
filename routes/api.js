@@ -6,10 +6,17 @@ var path = require("path");
 var Datastore = require('nedb');
 var Cam = require('onvif').Cam;
 var cpuinfo = require('proc-cpuinfo')()
+var exec = require('child_process').exec;
 var db = {};
 
-// Datastores
+// Globals
+var omxOptions = '--lavfdopts probesize:25000 --no-keys --live --timeout 30 --layer 3 --alpha 0';
 var dbPath = "db/";
+var omxProcs = []
+var omxTimer = []
+
+
+// Datastores
 db.cameras = new Datastore({
   filename: dbPath + 'cameras.db',
   autoload: true
@@ -89,7 +96,7 @@ router.post('/onvifSnapshotQuery', function(req, res) {
   });
 });
 
-// Get Cameras
+// Get Cameras from Database
 router.get('/getCameras', function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "http://localhost");
   res.header("Access-Control-Allow-Methods", "GET, POST");
@@ -117,7 +124,7 @@ router.get('/getCameras', function(req, res, next) {
   });
 });
 
-// Add Camera
+// Add Camera to Database
 router.post('/addCamera', function(req, res) {
   console.log("POST: ");
   res.header("Access-Control-Allow-Origin", "http://localhost");
@@ -151,7 +158,7 @@ router.post('/addCamera', function(req, res) {
   }
 });
 
-// Update Cameras
+// Update Cameras Priority
 router.post('/updateCameras', function(req, res) {
   res.header("Access-Control-Allow-Origin", "http://localhost");
   res.header("Access-Control-Allow-Methods", "GET, POST");
@@ -177,7 +184,7 @@ router.post('/updateCameras', function(req, res) {
   }
 });
 
-// Delete Camera
+// Remove Camera from Database
 router.post('/delCamera', function(req, res) {
   console.log("POST: ");
   res.header("Access-Control-Allow-Origin", "http://localhost");
@@ -196,7 +203,7 @@ router.post('/delCamera', function(req, res) {
     });
 });
 
-// Get Views
+// Return View Layout from Database
 router.post('/getViews', function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "http://localhost");
   res.header("Access-Control-Allow-Methods", "GET, POST");
@@ -210,7 +217,7 @@ router.post('/getViews', function(req, res, next) {
   });
 });
 
-// Update Views
+// Update View Layout in Database
 router.post('/updateView', function(req, res) {
   //console.log("POST: ");
   res.header("Access-Control-Allow-Origin", "http://localhost");
@@ -236,6 +243,40 @@ router.post('/updateView', function(req, res) {
   }
 });
 
+// Begin omxplayer functions
 
+// Start and Restart the OMXPlayer Proccess
+function omxProccess(camera, stream) {
+  var cmd = 'omxplayer ' + omxOptions + ' --dbus_name "org.raspipc.tv.feed.' + camera + '" "' + stream + '"'
+  omxProcs[camera] = exec(cmd, function(error, stdout, stderr) {
+    if (error) console.log(error)
+    else console.log('camera running:' + camera)
+  })
+  omxProcs[camera].on('close', (code, signal) => {
+    console.log('video stream ended: ' + stream)
+    clearTimeout(omxTimer[camera])
+    omxTimer[camera] = setTimeout(function() {
+      console.log('trying to restart: ' + stream)
+      omxProccess(camera, stream)
+    }, 15000)
+  })
+}
+
+// Init all feeds on startup
+function omxInit() {
+  db.cameras.find({}).sort({
+    row: 1
+  }).exec(function(err, cameras) { // Query in NeDB via NeDB Module
+    if (err || !cameras) console.log("no cameras to initalize");
+    else {
+      cameras.forEach(function(camera) {
+        omxProccess(camera._id, camera.feed)
+        console.log('starting camera: ' + camera._id + ' (' + camera.name + ')')
+      });
+    }
+  });
+}
+
+omxInit()
 
 module.exports = router;
