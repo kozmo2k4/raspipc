@@ -1,4 +1,10 @@
 ## About
+[![GitHub release](https://img.shields.io/github/release/qubyte/rubidium.svg)]()
+[![Github All Releases](https://img.shields.io/github/downloads/atom/atom/total.svg)]()
+[![GPL-3.0](https://img.shields.io/badge/license-GPL-blue.svg)]()
+[![npm](https://img.shields.io/npm/v/npm.svg)]()
+[![node](https://img.shields.io/node/v/gh-badges.svg)]()
+
 Pronounced: Ras - Pip - See - Tee - Vee
 
 Goal: Display network security cameras on a TV or dedicated display; all managed remotely with a simple and modern WebUI.
