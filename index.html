@@ -34,15 +34,19 @@
         <h2>
 <a id="about" class="anchor" href="#about" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>About</h2>
 
+<p><img src="https://img.shields.io/badge/raspberry-pi-red.svg" alt="Raspberry Pi">
+<a href=""><img src="https://img.shields.io/github/release/qubyte/rubidium.svg" alt="GitHub release"></a>
+<a href=""><img src="https://img.shields.io/badge/license-GPL-blue.svg" alt="GPL-3.0"></a></p>
+
 <p>Pronounced: Ras - Pip - See - Tee - Vee</p>
 
-<p>Goal: Display security cameras on a TV or dedicated Monitor; all managed remotely with a simple and modern WebUI.</p>
+<p>Goal: Display network security cameras on a TV or dedicated display; all managed remotely with a simple and modern WebUI.</p>
 
 <blockquote>
 <p>Under Very Heavy Development - NON FUNCTIONAL</p>
 </blockquote>
 
-<p><a href="http://raspIPC.tv">raspIPC.tv</a> is a fancy web interface for <a href="https://github.com/popcornmix/omxplayer">omxplayer</a>, the Raspberry Pi command line video player.
+<p><a href="http://raspIPC.tv">raspIPC.tv</a> is a fancy web front end for <a href="https://github.com/popcornmix/omxplayer">omxplayer</a>, the Raspberry Pi command line video player.
 Loaded up on a Raspberry Pi, a $35 credit card sized computer, It allows you to quickly and easily get your security
 cameras video feeds displayed on your Television with many great layouts that you can customize.</p>
 
@@ -70,21 +74,30 @@ can securely access your cameras remotely without exposing them to the dangers o
 <ul>
 <li>RSTP/HTTP H264/MJPEG/MPEG2 (TCP) Video Streaming</li>
 <li>1-10/13/16 Camera Grid Displays</li>
-<li>Multi-language Support</li>
+<li>Multi-language Support detected by browser
+
+<ul>
+<li>English (Default)</li>
+<li>German</li>
+<li>Please help translate: <a href="https://github.com/nayrnet/raspipc/blob/master/public/language/locale-en.json">language file</a>
+</li>
+</ul>
+</li>
 <li>Letterbox/Stretch/Fill Aspect Ratios</li>
 <li>WebUI for easy setup
 
 <ul>
 <li>Drag and drop arrangement</li>
-<li>OnVif Stream Detection</li>
+<li>Onvif Stream Detection</li>
 <li>Preview Image</li>
+<li>HTTP API for NVR/Automation Integration</li>
 </ul>
 </li>
 <li>Stream Watchdog
 
 <ul>
-<li>Restarts dropped streams</li>
-<li>Durring outage, displays next highest priority</li>
+<li>Restarts dropped streams automatically</li>
+<li>Durring outage, replaces down camera with next highest camera that is not displayed.</li>
 </ul>
 </li>
 <li>Raspbian Jessie image - boot and go!</li>
@@ -129,7 +142,7 @@ can securely access your cameras remotely without exposing them to the dangers o
 <a id="raspberry-pi-video" class="anchor" href="#raspberry-pi-video" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Raspberry Pi Video</h3>
 
 <blockquote>
-<p>The Raspberry Pi was chosen because it has excellent video performance for such a tiny and affordable little machine. It has hardware support for H264 MPEG4 MJPG MPEG2 video formats which covers basically all IP Cameras. (no h265 sorry)</p>
+<p>The Raspberry Pi was chosen because it has excellent video performance for such a tiny and affordable little machine. It has hardware support for H264 MPEG4 MJPG MPEG2 video formats which covers basically all IP Cameras. (no h265 sorry, lets hope Raspberry Pi 4k is next!)</p>
 </blockquote>
 
 <h3>
@@ -139,6 +152,29 @@ can securely access your cameras remotely without exposing them to the dangers o
 <img src="https://raw.githubusercontent.com/nayrnet/raspipc/master/screenshots/fiveCamsCustom.png" alt="screenshot" title="5 Cameras Custom">
 <img src="https://raw.githubusercontent.com/nayrnet/raspipc/master/screenshots/camConfig.png" alt="screenshot" title="Configure">
 <img src="https://raw.githubusercontent.com/nayrnet/raspipc/master/screenshots/about.png" alt="screenshot" title="About Page"></p>
+
+<h3>
+<a id="feature-wish-list" class="anchor" href="#feature-wish-list" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Feature Wish list:</h3>
+
+<p>This is a todo list of awesome ideas I would like to get around to but haven't got around to implementing yet.</p>
+
+<ul>
+<li>RSTP Streams via VLC Plugin</li>
+<li>Custom Display Drawing</li>
+<li>Cropping/Zooming</li>
+<li>Change cameras on timers</li>
+<li>IR Remote Control support</li>
+<li>MQTT API</li>
+<li>Auto Detection and Display on first boot</li>
+<li>Mobile Interface</li>
+<li>Simple OpenVPN WebUI</li>
+</ul>
+
+<h4>
+<a id="donate" class="anchor" href="#donate" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Donate</h4>
+
+<p>If you found this extremely useful and would like to donate to the cause I always have a need for more hardware to test and experiment with.
+<a href="http://amzn.com/w/2WIL3AMJWRMWT">http://amzn.com/w/2WIL3AMJWRMWT</a></p>
       </section>
     </div>
 
