@@ -54,7 +54,7 @@
             </div>
             <div class="nav navbar-nav navbar-right btn-group" role="group">
               <div class="btn-group" uib-dropdown>
-                <button type="button" class="btn btn-black" style="padding: 6px;" uib-dropdown-toggle>
+                <button type="button" class="btn btn-black" style="padding: 6px;" uib-dropdown-toggle aria-label="{{ 'REFRESHRATE' | translate }}" uib-tooltip="{{ 'REFRESHRATE' | translate }}" tooltip-append-to-body="true" tooltip-placement="bottom">
                   <span class="caret"></span>
                   <span class="sr-only">Split button!</span>
                 </button>
@@ -62,13 +62,13 @@
                    <i class="glyphicon glyphicon-refresh"></i>
                 </button>
                 <ul uib-dropdown-menu role="menu" aria-labelledby="single-button">
-                  <li role="menuitem"><a ng-click="refreshTimer(5)"><i ng-if="timer === 5" class="glyphicon glyphicon-triangle-right"></i> {{ 'REFRESHRATE' | translate }}: 5 {{ 'SEC' | translate }}</a></li>
-                  <li role="menuitem"><a ng-click="refreshTimer(10)"><i ng-if="timer === 10" class="glyphicon glyphicon-triangle-right"></i> {{ 'REFRESHRATE' | translate }}: 10 {{ 'SEC' | translate }}</a></li>
-                  <li role="menuitem"><a ng-click="refreshTimer(30)"><i ng-if="timer === 30" class="glyphicon glyphicon-triangle-right"></i> {{ 'REFRESHRATE' | translate }}: 30 {{ 'SEC' | translate }}</a></li>
-                  <li role="menuitem"><a ng-click="refreshTimer(60)"><i ng-if="timer === 60" class="glyphicon glyphicon-triangle-right"></i> {{ 'REFRESHRATE' | translate }}: 1 {{ 'MIN' | translate }}</a></li>
-                  <li role="menuitem"><a ng-click="refreshTimer(300)"><i ng-if="timer === 300" class="glyphicon glyphicon-triangle-right"></i> {{ 'REFRESHRATE' | translate }}: 5 {{ 'MIN' | translate }}</a></li>
+                  <li role="menuitem"><a ng-click="refreshTimer(5)"><i ng-if="timer === 5" class="glyphicon glyphicon-triangle-right"></i> 5 {{ 'SEC' | translate }}</a></li>
+                  <li role="menuitem"><a ng-click="refreshTimer(10)"><i ng-if="timer === 10" class="glyphicon glyphicon-triangle-right"></i> 10 {{ 'SEC' | translate }}</a></li>
+                  <li role="menuitem"><a ng-click="refreshTimer(30)"><i ng-if="timer === 30" class="glyphicon glyphicon-triangle-right"></i> 30 {{ 'SEC' | translate }}</a></li>
+                  <li role="menuitem"><a ng-click="refreshTimer(60)"><i ng-if="timer === 60" class="glyphicon glyphicon-triangle-right"></i> 1 {{ 'MIN' | translate }}</a></li>
+                  <li role="menuitem"><a ng-click="refreshTimer(300)"><i ng-if="timer === 300" class="glyphicon glyphicon-triangle-right"></i> 5 {{ 'MIN' | translate }}</a></li>
                   <li class="divider"></li>
-                  <li role="menuitem"><a ng-click="refreshTimer(0)"><i ng-if="timer < 1" class="glyphicon glyphicon-triangle-right"></i> {{ 'DISABLEREFRESH' | translate }}</a></li>
+                  <li role="menuitem"><a ng-click="refreshTimer(0)"><i ng-if="timer < 1" class="glyphicon glyphicon-triangle-right"></i> {{ 'NEVER' | translate }}</a></li>
                 </ul>
               </div>
 

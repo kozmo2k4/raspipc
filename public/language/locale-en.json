@@ -15,7 +15,7 @@
   "REFRESHRATE": "refresh rate",
   "SEC": "sec",
   "MIN": "min",
-  "DISABLEREFRESH": "disable auto refresh",
+  "NEVER": "never",
   "IPCAMERAS": "IP Cameras",
   "CONFIGURE": "Configure Camera",
   "CFGNOTICE": "H264 and MJPEG via RSTP/HTTP (TCP) Only",

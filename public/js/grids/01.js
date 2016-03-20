@@ -74,10 +74,10 @@ angular.module('app')
 	}
 
 	// Watch for Changes and Update View
-	$scope.$watch('viewItems', function(items) {
-		var jdata = 'view=' + $scope.page[0] + '&data=' + JSON.stringify(
-			items);
-		$rootScope.updateView(jdata)
-	}, true)
+	//$scope.$watch('viewItems', function(items) {
+	//	var jdata = 'view=' + $scope.page[0] + '&data=' + JSON.stringify(
+	//		items);
+	//	$rootScope.updateView(jdata)
+	//}, true)
 
 }]);
