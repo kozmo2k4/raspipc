@@ -139,7 +139,8 @@
             },
             cams8: {
               name: "Eight Cam Grid",
-              icon: "icon-7",
+              icon: "icon-8",
+              href: "8",
             },
             cams9: {
               name: "3x3 Nine Cam Grid",
