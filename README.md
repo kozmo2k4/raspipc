@@ -1,4 +1,5 @@
 ## About
+![Raspberry Pi](https://img.shields.io/badge/raspberry-pi-red.svg)
 [![GitHub release](https://img.shields.io/github/release/qubyte/rubidium.svg)]()
 [![Github All Releases](https://img.shields.io/github/downloads/atom/atom/total.svg)]()
 [![GPL-3.0](https://img.shields.io/badge/license-GPL-blue.svg)]()
