@@ -1,4 +1,5 @@
-// API Command Interface
+// raspIPCtv API Command Interface
+// Most of the backend macgic happens in here.
 
 var express = require('express');
 var router = express.Router();
@@ -10,9 +11,10 @@ var exec = require('child_process').exec;
 var db = {};
 
 // Globals
-var omxOptions = '--lavfdopts probesize:25000 --no-keys --live --timeout 30 --layer 3 --alpha 0';
+var omxOptions =
+  '--lavfdopts probesize:25000 --no-keys --live --timeout 30 --layer 3 --win "0 3500 100 3600"';
 var dbPath = "db/";
-var omxProcs = []
+var omxProc = []
 var omxTimer = []
 
 
@@ -25,6 +27,13 @@ db.views = new Datastore({
   filename: dbPath + 'views.db',
   autoload: true
 });
+db.display = new Datastore({
+  filename: dbPath + 'display.db',
+  autoload: true
+});
+
+// Load Feeds on startup
+omxInit()
 
 // Detect Browser Language
 router.get('/detectLanguage', function(req, res) {
@@ -126,13 +135,10 @@ router.get('/getCameras', function(req, res, next) {
 
 // Add Camera to Database
 router.post('/addCamera', function(req, res) {
-  console.log("POST: ");
   res.header("Access-Control-Allow-Origin", "http://localhost");
   res.header("Access-Control-Allow-Methods", "GET, POST");
   // The above 2 lines are required for Cross Domain Communication(Allowing the methods that come as Cross
   // Domain Request
-  console.log(req.body);
-  console.log(req.body.data);
   if (req.body.data) {
     var jsonData = JSON.parse(req.body.data)
     db.cameras.update({
@@ -155,6 +161,8 @@ router.post('/addCamera', function(req, res) {
         if (err) res.end("Camera not saved");
         else res.end("Camera saved");
       });
+    // New Camera, lets start feed offscreen
+    if (jsonData.feed) omxProccess(jsonData.id, jsonData.feed);
   }
 });
 
@@ -246,19 +254,24 @@ router.post('/updateView', function(req, res) {
 // Begin omxplayer functions
 
 // Start and Restart the OMXPlayer Proccess
-function omxProccess(camera, stream) {
-  var cmd = 'omxplayer ' + omxOptions + ' --dbus_name "org.raspipc.tv.feed.' + camera + '" "' + stream + '"'
-  omxProcs[camera] = exec(cmd, function(error, stdout, stderr) {
-    if (error) console.log(error)
-    else console.log('camera running:' + camera)
+function omxProccess(camera, stream, audio, ar) {
+  console.log('starting camera offscreen: ' + camera._id + ' (' + camera.name + ')')
+    // build omxplayer command
+  var cmd = 'sudo omxplayer ' + omxOptions + ' --dbus_name "org.mpris.MediaPlayer2.' + camera + '" --aspect-mode ' + ar
+  if (audio === 'none') cmd = cmd + ' -p --aidx -1';
+  else cmd = cmd + ' -o ' + audio;
+  cmd = cmd + ' "' + stream + '""'
+    // start omxplayer
+  omxProc[camera] = exec(cmd, function(error, stdout, stderr) {
+    if (error) console.log('exited: ' + error.code)
   })
-  omxProcs[camera].on('close', (code, signal) => {
-    console.log('video stream ended: ' + stream)
+  omxProc[camera].on('close', (code, signal) => {
+    //restart omxplayer after 10s
     clearTimeout(omxTimer[camera])
     omxTimer[camera] = setTimeout(function() {
       console.log('trying to restart: ' + stream)
       omxProccess(camera, stream)
-    }, 15000)
+    }, 10000)
   })
 }
 
@@ -266,17 +279,24 @@ function omxProccess(camera, stream) {
 function omxInit() {
   db.cameras.find({}).sort({
     row: 1
-  }).exec(function(err, cameras) { // Query in NeDB via NeDB Module
+  }).exec(function(err, cameras) {
     if (err || !cameras) console.log("no cameras to initalize");
     else {
       cameras.forEach(function(camera) {
-        omxProccess(camera._id, camera.feed)
-        console.log('starting camera: ' + camera._id + ' (' + camera.name + ')')
+        omxProccess(camera._id, camera.feed, camera.audio, camera.ar)
       });
     }
   });
 }
 
-omxInit()
+// Cache Display Resolution in /tmp/display-resolution.json
+function cacheResolution() {
+
+}
+
+// Cache Codec Support in /tmp/codec-support.json
+function cacheCodec() {
+
+}
 
 module.exports = router;
